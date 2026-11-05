@@ -1,6 +1,6 @@
 /**
  * CAHAYA MUSTIKA INTERNESIA - Main JavaScript
- * Handles Theme Management, Navbar, Dropdown, Modals, Forms & WhatsApp Integration
+ * Handles Navbar, Dropdown, Modals, Forms & WhatsApp Integration
  */
 
 const CM_PHONE = '+62 811-330-1819';
@@ -8,17 +8,6 @@ const CM_WA_NUMBER = '628113301819';
 const CM_COMPANY = 'PT Cahaya Mustika Internesia';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Theme Toggle Button
-  const themeBtn = document.getElementById('theme');
-  if (themeBtn) {
-    themeBtn.addEventListener('click', () => {
-      const current = document.body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-      const next = current === 'dark' ? 'light' : 'dark';
-      applyTheme(next, true);
-      showToast(`Tema diubah ke mode ${next === 'dark' ? 'Gelap' : 'Terang'}`);
-    });
-  }
-
   // Navbar Scroll Shadow
   const nav = document.getElementById('nav');
   const onScroll = () => {
