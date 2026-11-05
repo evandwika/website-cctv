@@ -1,5 +1,5 @@
 /**
- * VIGILAX SECURE - Live Surveillance Monitor Simulator
+ * CAHAYA MUSTIKA INTERNESIA - Live Surveillance Monitor Simulator
  * Interactive CCTV feed features:
  * - Real-time camera clock
  * - Camera channel switcher

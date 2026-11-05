@@ -1,15 +1,15 @@
-/**
- * VIGILAX SECURE - Product Catalog & Filtering Logic per PDF Blueprint
+﻿/**
+ * CAHAYA MUSTIKA INTERNESIA - Product Catalog & Filtering Logic
  */
 
 const cctvProducts = [
   {
     id: 'prod-1',
-    name: 'Vigilax Ultra 4K AI Bullet Camera',
+    name: 'Cahaya Mustika Ultra 4K AI Bullet Camera',
     category: 'bullet',
     categoryName: 'Bullet Camera',
-    brand: 'vigilax',
-    brandName: 'Vigilax',
+    brand: 'cahayamustika',
+    brandName: 'Cahaya Mustika',
     res: '4K UHD (8MP)',
     price: 'Rp 1.450.000',
     image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=600&q=80',
@@ -128,8 +128,8 @@ const cctvProducts = [
     name: 'Seagate SkyHawk Surveillance HDD 8TB',
     category: 'accessories',
     categoryName: 'CCTV Accessories',
-    brand: 'vigilax',
-    brandName: 'Seagate',
+    brand: 'cahayamustika',
+    brandName: 'Cahaya Mustika & Seagate',
     res: 'Custom Storage',
     price: 'Rp 2.950.000',
     image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=600&q=80',
@@ -145,11 +145,11 @@ const cctvProducts = [
   },
   {
     id: 'prod-8',
-    name: 'Vigilax Pro Conduit Cable Box Kit 100M',
+    name: 'Cahaya Mustika Pro Conduit Cable Box Kit 100M',
     category: 'accessories',
     categoryName: 'CCTV Accessories',
-    brand: 'vigilax',
-    brandName: 'Vigilax',
+    brand: 'cahayamustika',
+    brandName: 'Cahaya Mustika',
     res: 'Kabel & Pipa',
     price: 'Rp 850.000',
     image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80',
@@ -168,24 +168,48 @@ const cctvProducts = [
 document.addEventListener('DOMContentLoaded', () => {
   const productContainer = document.getElementById('productGridContainer');
   const searchInput = document.getElementById('searchProductInput');
+  const catSelect = document.getElementById('categorySelect');
+  const brandSelect = document.getElementById('brandSelect');
   const catFilterBtns = document.querySelectorAll('.cat-filter-btn');
   const brandFilterBtns = document.querySelectorAll('.brand-filter-btn');
 
   if (!productContainer) return;
 
-  // Read URL query params for initial category
+  // Read URL query params or hash for initial category/brand
   const urlParams = new URLSearchParams(window.location.search);
-  let activeCategory = urlParams.get('cat') || 'all';
-  let activeBrand = 'all';
+  const hashParam = window.location.hash.replace('#', '').toLowerCase();
+  
+  let activeCategory = urlParams.get('cat') || hashParam || 'all';
+  let activeBrand = urlParams.get('brand') || 'all';
   let searchTerm = '';
 
-  // Synchronize category button state
-  catFilterBtns.forEach(btn => {
-    if (btn.getAttribute('data-filter') === activeCategory) {
-      btn.classList.add('active');
+  // Synchronize dropdown values
+  if (catSelect) {
+    const validCat = [...catSelect.options].some(o => o.value === activeCategory);
+    if (validCat) {
+      catSelect.value = activeCategory;
     } else {
-      btn.classList.remove('active');
+      activeCategory = 'all';
+      catSelect.value = 'all';
     }
+  }
+
+  if (brandSelect) {
+    const validBrand = [...brandSelect.options].some(o => o.value === activeBrand);
+    if (validBrand) {
+      brandSelect.value = activeBrand;
+    } else {
+      activeBrand = 'all';
+      brandSelect.value = 'all';
+    }
+  }
+
+  // Synchronize legacy buttons if present
+  catFilterBtns.forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-filter') === activeCategory);
+  });
+  brandFilterBtns.forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-brand') === activeBrand);
   });
 
   function renderProducts() {
@@ -207,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
           <h3 style="margin-bottom: 0.5rem;">Tidak Ada Produk yang Cocok</h3>
-          <p>Coba gunakan kata kunci pencarian lain atau klik tombol Semua.</p>
+          <p>Coba gunakan filter dropdown lain atau kata kunci pencarian yang berbeda.</p>
         </div>
       `;
       return;
@@ -221,9 +245,9 @@ document.addEventListener('DOMContentLoaded', () => {
           <img src="${item.image}" alt="${item.name}" loading="lazy" />
         </div>
         <div class="product-body">
-          <div class="product-meta-row">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
             <span class="product-category">${item.categoryName}</span>
-            <span class="product-brand-tag">${item.brandName}</span>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">${item.brandName}</span>
           </div>
           <h3 class="product-title">${item.name}</h3>
           <div class="product-specs-list">
@@ -236,8 +260,8 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
             `).join('')}
           </div>
-          <div class="product-footer product-footer-nopricing">
-            <a href="product-detail.html?id=${item.id}" class="btn btn-primary btn-sm btn-full-width">
+          <div class="product-footer">
+            <a href="product-detail.html?id=${item.id}" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">
               Detail Produk
             </a>
           </div>
@@ -246,22 +270,40 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
-  // Category Filter Buttons
+  // Category Dropdown Listener
+  if (catSelect) {
+    catSelect.addEventListener('change', (e) => {
+      activeCategory = e.target.value;
+      renderProducts();
+    });
+  }
+
+  // Brand Dropdown Listener
+  if (brandSelect) {
+    brandSelect.addEventListener('change', (e) => {
+      activeBrand = e.target.value;
+      renderProducts();
+    });
+  }
+
+  // Category Filter Buttons (if any)
   catFilterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       catFilterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       activeCategory = btn.getAttribute('data-filter');
+      if (catSelect) catSelect.value = activeCategory;
       renderProducts();
     });
   });
 
-  // Brand Filter Buttons
+  // Brand Filter Buttons (if any)
   brandFilterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       brandFilterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       activeBrand = btn.getAttribute('data-brand');
+      if (brandSelect) brandSelect.value = activeBrand;
       renderProducts();
     });
   });

@@ -1,65 +1,102 @@
 /**
- * VIGILAX SECURE - Main JavaScript
- * Handles Theme Management, Mobile Navigation, Modals, and Global Utilities
+ * CAHAYA MUSTIKA INTERNESIA - Main JavaScript
+ * Handles Theme Management, Navbar, Dropdown, Modals, Forms & WhatsApp Integration
  */
 
-// Initialize Theme Management
-(function initTheme() {
-  const savedTheme = localStorage.getItem('vigilax-theme');
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initialTheme = savedTheme ? savedTheme : (prefersDark ? 'dark' : 'light');
-
-  document.body.setAttribute('data-theme', initialTheme);
-})();
+const CM_PHONE = '+62 811-330-1819';
+const CM_WA_NUMBER = '628113301819';
+const CM_COMPANY = 'PT Cahaya Mustika Internesia';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Theme Toggle Button
-  const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
-  themeToggleBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const currentTheme = document.body.getAttribute('data-theme') || 'light';
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      
-      document.body.setAttribute('data-theme', newTheme);
-      localStorage.setItem('vigilax-theme', newTheme);
-      
-      showToast(`Tema diubah ke mode ${newTheme === 'dark' ? 'Gelap' : 'Terang'}`);
+  const themeBtn = document.getElementById('theme');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      const current = document.body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next, true);
+      showToast(`Tema diubah ke mode ${next === 'dark' ? 'Gelap' : 'Terang'}`);
     });
-  });
+  }
 
-  // Mobile Navigation Toggle
-  const mobileToggle = document.querySelector('.mobile-nav-toggle');
-  const navMenu = document.querySelector('.nav-menu');
+  // Navbar Scroll Shadow
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if (nav) {
+      nav.classList.toggle('sc', window.scrollY > 8);
+    }
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
 
-  if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-      const isOpen = navMenu.classList.contains('open');
-      mobileToggle.innerHTML = isOpen 
-        ? `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>`
-        : `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>`;
+  // Mobile Menu & Burger Toggle
+  const menu = document.getElementById('menu');
+  const burger = document.getElementById('burger');
+  const dd = document.querySelector('.dd');
+  const ddBtn = document.querySelector('.dd-btn');
+
+  const closeMenu = () => {
+    if (menu) menu.classList.remove('open');
+    if (burger) {
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Buka menu');
+    }
+  };
+
+  if (burger && menu) {
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(isOpen));
+      burger.setAttribute('aria-label', isOpen ? 'Tutup menu' : 'Buka menu');
+    });
+  }
+
+  // Dropdown Menu Interactions
+  if (dd && ddBtn) {
+    ddBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = dd.classList.toggle('open');
+      ddBtn.setAttribute('aria-expanded', String(open));
     });
 
-    // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-      if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target) && navMenu.classList.contains('open')) {
-        navMenu.classList.remove('open');
-        mobileToggle.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>`;
+      if (!dd.contains(e.target)) {
+        dd.classList.remove('open');
+        ddBtn.setAttribute('aria-expanded', 'false');
+      }
+      if (menu && burger && !menu.contains(e.target) && !burger.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        dd.classList.remove('open');
+        ddBtn.setAttribute('aria-expanded', 'false');
+        closeMenu();
       }
     });
   }
 
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 960) closeMenu();
+  });
+
   // Active Navigation Highlighting
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  const navLinks = document.querySelectorAll('.nav-link');
+  const navLinks = document.querySelectorAll('.menu > a, .dd-btn');
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
     if (href === currentPath || (currentPath === '' && href === 'index.html')) {
       link.classList.add('active');
-    } else {
-      link.classList.remove('active');
+      link.setAttribute('aria-current', 'page');
     }
   });
+  if (currentPath.includes('product')) {
+    if (dd) dd.classList.add('active');
+    if (ddBtn) ddBtn.classList.add('active');
+  }
 
   // Back to Top Button
   const backToTopBtn = document.querySelector('.back-to-top-btn');
@@ -78,16 +115,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // FAQ Accordion
-  const faqItems = document.querySelectorAll('.faq-item');
+  const faqItems = document.querySelectorAll('.faq-item, .faq-i');
   faqItems.forEach(item => {
-    const questionBtn = item.querySelector('.faq-question');
+    const questionBtn = item.querySelector('.faq-question, .faq-q');
     if (questionBtn) {
       questionBtn.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        // Close other items
-        faqItems.forEach(otherItem => otherItem.classList.remove('active'));
+        const isActive = item.classList.contains('active') || item.classList.contains('open');
+        faqItems.forEach(other => {
+          other.classList.remove('active');
+          other.classList.remove('open');
+          const ob = other.querySelector('.faq-question, .faq-q');
+          if (ob) ob.setAttribute('aria-expanded', 'false');
+        });
         if (!isActive) {
           item.classList.add('active');
+          item.classList.add('open');
+          questionBtn.setAttribute('aria-expanded', 'true');
         }
       });
     }
@@ -96,18 +139,39 @@ document.addEventListener('DOMContentLoaded', () => {
   // Global Quote / Consultation Modal
   setupConsultationModal();
 
-  // Contact Form Handling (if present)
+  // Contact Form Handling -> Redirect to WhatsApp +62 811-330-1819
   const contactForm = document.getElementById('mainContactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('inputName')?.value || 'Pelanggan';
+      const name = document.getElementById('inputName')?.value.trim() || 'Pelanggan';
+      const phone = document.getElementById('inputPhone')?.value.trim() || '-';
+      const email = document.getElementById('inputEmail')?.value.trim() || '-';
+      const city = document.getElementById('inputCity')?.value.trim() || '-';
       const service = document.getElementById('selectService')?.value || 'Instalasi CCTV';
-      
-      showToast(`Terima kasih Bapak/Ibu ${name}! Permintaan ${service} telah diterima. Tim ahli kami akan menghubungi via WhatsApp/Telepon dalam 15 menit.`, 5000);
+      const count = document.getElementById('selectCamCount')?.value || '-';
+      const notes = document.getElementById('inputNotes')?.value.trim() || '-';
+
+      const msg = `Halo Cahaya Mustika Internesia, saya ingin berkonsultasi mengenai solusi CCTV.\n\n` +
+                  `Nama: ${name}\n` +
+                  `Nomor HP/WA: ${phone}\n` +
+                  `Email: ${email}\n` +
+                  `Lokasi: ${city}\n` +
+                  `Jenis Properti: ${service}\n` +
+                  `Estimasi Titik Kamera: ${count}\n` +
+                  `Catatan: ${notes}`;
+
+      const waUrl = `https://wa.me/${CM_WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+      window.open(waUrl, '_blank', 'noopener');
+      showToast(`Terima kasih Bapak/Ibu ${name}! Membuka WhatsApp konsultan kami...`, 4000);
       contactForm.reset();
     });
   }
+
+  // Update Year in footer
+  document.querySelectorAll('#yr').forEach(el => {
+    el.textContent = new Date().getFullYear();
+  });
 });
 
 // Toast Notification System
@@ -170,8 +234,21 @@ function setupConsultationModal() {
   if (modalForm) {
     modalForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const name = modalForm.querySelector('input[type="text"]')?.value.trim() || 'Pelanggan';
+      const phone = modalForm.querySelector('input[type="tel"]')?.value.trim() || '-';
+      const pkg = modalForm.querySelector('#modalPackageInput')?.value || 'Konsultasi CCTV';
+      const notes = modalForm.querySelector('textarea')?.value.trim() || '-';
+
+      const msg = `Halo Cahaya Mustika Internesia, saya ingin berkonsultasi mengenai paket CCTV.\n\n` +
+                  `Nama: ${name}\n` +
+                  `Nomor HP/WA: ${phone}\n` +
+                  `Paket Pilihan: ${pkg}\n` +
+                  `Catatan: ${notes}`;
+
       modal.classList.remove('active');
-      showToast('Permintaan survei & konsultasi berhasil terkirim! Tim kami akan segera merespons.');
+      const waUrl = `https://wa.me/${CM_WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+      window.open(waUrl, '_blank', 'noopener');
+      showToast('Permintaan survei & konsultasi berhasil terkirim!');
       modalForm.reset();
     });
   }

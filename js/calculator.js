@@ -1,5 +1,5 @@
 /**
- * VIGILAX SECURE - CCTV Storage & Bandwidth Calculator
+ * CAHAYA MUSTIKA INTERNESIA - CCTV Storage & Bandwidth Calculator
  * Calculates estimated Hard Drive capacity and bandwidth requirements
  */
 
