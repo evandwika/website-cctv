@@ -465,15 +465,11 @@ button, input, select, textarea {
 }
 
 .eyebrow-blue {
-  background: var(--soft);
-  color: var(--p);
-  border: 1px solid var(--soft-border);
+  display: none !important;
 }
 
 .eyebrow-gold {
-  background: var(--gold-soft);
-  color: var(--gold-dark);
-  border: 1px solid var(--gold-border);
+  display: none !important;
 }
 
 .eyebrow-hero {
