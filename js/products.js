@@ -6,9 +6,9 @@
 const cctvProducts = [
   {
     id: 'prod-1',
-    name: 'CMI MineGuard ATEX Explosion-Proof 4K PTZ Camera',
+    name: 'CMI MineGuard Explosion-Proof 4K PTZ Camera',
     category: 'explosion-proof',
-    categoryName: 'Explosion-Proof',
+    categoryName: 'Kamera CCTV Explosion-Proof',
     brand: 'cahayamustika',
     brandName: 'CMI Mining',
     res: '4K Ultra-HD (8MP)',
@@ -26,9 +26,9 @@ const cctvProducts = [
   },
   {
     id: 'prod-2',
-    name: 'CMI SolarPit 4G Mobile CCTV Tower 200W LiFePO4',
+    name: 'CMI SolarPit Mobile Solar CCTV Tower 4G',
     category: 'solar-tower',
-    categoryName: 'Solar 4G Tower',
+    categoryName: 'Solar CCTV Tower',
     brand: 'cahayamustika',
     brandName: 'CMI Mining',
     res: '4K Dual Lens PTZ',
@@ -48,7 +48,7 @@ const cctvProducts = [
     id: 'prod-3',
     name: 'Hikvision Industrial Dual-Spectrum AI Thermal & Optical Bullet',
     category: 'thermal',
-    categoryName: 'Thermal & Stockpile',
+    categoryName: 'Kamera Thermal dan AI',
     brand: 'hikvision',
     brandName: 'Hikvision Mining',
     res: 'Dual 4MP + Thermal Sensor',
@@ -68,7 +68,7 @@ const cctvProducts = [
     id: 'prod-4',
     name: 'Dahua Mining Heavy Fleet AI Camera Kit (Haul Truck & Excavator)',
     category: 'fleet-ai',
-    categoryName: 'Fleet Alat Berat AI',
+    categoryName: 'Kamera AI Alat Berat',
     brand: 'dahua',
     brandName: 'Dahua Heavy',
     res: 'Full HD 1080p Anti-Shock',
@@ -88,7 +88,7 @@ const cctvProducts = [
     id: 'prod-5',
     name: 'CMI PitPerimeter 50x Ultra Long-Range Laser PTZ 3KM',
     category: 'long-range',
-    categoryName: 'Long-Range PTZ',
+    categoryName: 'Kamera PTZ untuk Area Tambang',
     brand: 'cahayamustika',
     brandName: 'CMI Mining',
     res: '4K Ultra-HD 50x Zoom',
@@ -108,7 +108,7 @@ const cctvProducts = [
     id: 'prod-6',
     name: 'CMI ConveyorGuard Heavy-Duty Dustproof Camera',
     category: 'thermal',
-    categoryName: 'Thermal & Stockpile',
+    categoryName: 'Kamera Thermal dan AI',
     brand: 'cahayamustika',
     brandName: 'CMI Mining',
     res: '5MP QHD Low-Light',
@@ -128,7 +128,7 @@ const cctvProducts = [
     id: 'prod-7',
     name: 'CMI AirBridge Mining Wireless Microwave PTP 15KM',
     category: 'transmisi',
-    categoryName: 'Wireless PTP & NVR',
+    categoryName: 'Sistem Wireless CCTV',
     brand: 'cahayamustika',
     brandName: 'CMI Mining',
     res: 'Throughput 500+ Mbps',
@@ -148,7 +148,7 @@ const cctvProducts = [
     id: 'prod-8',
     name: 'Hikvision Ruggedized Mining Central NVR 64-Channel RAID',
     category: 'transmisi',
-    categoryName: 'Wireless PTP & NVR',
+    categoryName: 'Perangkat Pendukung CCTV',
     brand: 'hikvision',
     brandName: 'Hikvision Mining',
     res: '64-Channel 4K H.265+',
@@ -239,9 +239,11 @@ document.addEventListener('DOMContentLoaded', () => {
     productContainer.innerHTML = filtered.map(item => `
       <div class="product-card" data-id="${item.id}">
         <div class="product-image-box">
+          ${item.badge ? `<span class="product-badge-overlay">${item.badge}</span>` : ''}
           <img src="${item.image}" alt="${item.name}" loading="lazy" />
         </div>
         <div class="product-body">
+          <span class="product-mining-tag">${item.categoryName}</span>
           <h3 class="product-title">${item.name}</h3>
           <div class="product-specs-list">
             ${item.specs.slice(0, 3).map(s => `
