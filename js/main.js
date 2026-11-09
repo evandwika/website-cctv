@@ -1,6 +1,6 @@
 /**
  * CAHAYA MUSTIKA INTERNESIA - Main JavaScript
- * Handles Navbar, Dropdown, Modals, Forms & WhatsApp Integration
+ * Spesialis Sistem CCTV Tambang, Pengawasan Pit, Stockpile & Alat Berat
  */
 
 const CM_PHONE = '+62 811-330-1819';
@@ -8,11 +8,11 @@ const CM_WA_NUMBER = '628113301819';
 const CM_COMPANY = 'PT Cahaya Mustika Internesia';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Navbar Scroll Shadow
+  // Sticky Navbar Scroll
   const nav = document.getElementById('nav');
   const onScroll = () => {
     if (nav) {
-      nav.classList.toggle('sc', window.scrollY > 8);
+      nav.classList.toggle('sc', window.scrollY > 10);
     }
   };
   onScroll();
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Dropdown Menu Interactions
+  // Dropdown Menu
   if (dd && ddBtn) {
     ddBtn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Active Navigation Highlighting
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  const navLinks = document.querySelectorAll('.menu > a, .dd-btn');
+  const navLinks = document.querySelectorAll('.menu > a, .dd-list a');
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
     if (href === currentPath || (currentPath === '' && href === 'index.html')) {
@@ -85,22 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (currentPath.includes('product')) {
     if (dd) dd.classList.add('active');
     if (ddBtn) ddBtn.classList.add('active');
-  }
-
-  // Back to Top Button
-  const backToTopBtn = document.querySelector('.back-to-top-btn');
-  if (backToTopBtn) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
-      }
-    });
-
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
   }
 
   // FAQ Accordion
@@ -125,34 +109,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Global Quote / Consultation Modal
-  setupConsultationModal();
-
-  // Contact Form Handling -> Redirect to WhatsApp +62 811-330-1819
+  // Contact Form Handling (Redirect to WhatsApp)
   const contactForm = document.getElementById('mainContactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const company = document.getElementById('inputCompany')?.value.trim() || '-';
       const name = document.getElementById('inputName')?.value.trim() || 'Pelanggan';
       const phone = document.getElementById('inputPhone')?.value.trim() || '-';
       const email = document.getElementById('inputEmail')?.value.trim() || '-';
-      const city = document.getElementById('inputCity')?.value.trim() || '-';
-      const service = document.getElementById('selectService')?.value || 'Instalasi CCTV';
-      const count = document.getElementById('selectCamCount')?.value || '-';
+      const siteLoc = document.getElementById('inputSiteLocation')?.value.trim() || '-';
+      const commodity = document.getElementById('selectCommodity')?.value || 'Batubara / Nikel';
+      const need = document.getElementById('selectNeed')?.value || 'CCTV Pit Tambang / Solar Tower';
       const notes = document.getElementById('inputNotes')?.value.trim() || '-';
 
-      const msg = `Halo Cahaya Mustika Internesia, saya ingin berkonsultasi mengenai solusi CCTV.\n\n` +
-                  `Nama: ${name}\n` +
-                  `Nomor HP/WA: ${phone}\n` +
-                  `Email: ${email}\n` +
-                  `Lokasi: ${city}\n` +
-                  `Jenis Properti: ${service}\n` +
-                  `Estimasi Titik Kamera: ${count}\n` +
-                  `Catatan: ${notes}`;
+      const msg = `Halo PT Cahaya Mustika Internesia (Divisi CCTV Tambang),\n` +
+                  `Saya ingin konsultasi & permintaan survey site pengawasan tambang:\n\n` +
+                  `• Perusahaan: ${company}\n` +
+                  `• Nama PIC: ${name}\n` +
+                  `• No. WhatsApp: ${phone}\n` +
+                  `• Email: ${email}\n` +
+                  `• Lokasi Site: ${siteLoc}\n` +
+                  `• Komoditas Tambang: ${commodity}\n` +
+                  `• Kebutuhan Sistem: ${need}\n` +
+                  `• Catatan Khusus: ${notes}\n\n` +
+                  `Mohon info jadwal diskusi teknis & estimasi penawarannya. Terima kasih.`;
 
       const waUrl = `https://wa.me/${CM_WA_NUMBER}?text=${encodeURIComponent(msg)}`;
       window.open(waUrl, '_blank', 'noopener');
-      showToast(`Terima kasih Bapak/Ibu ${name}! Membuka WhatsApp konsultan kami...`, 4000);
+      showToast(`Terima kasih Bapak/Ibu ${name}! Menghubungi konsultan CCTV Tambang kami...`, 4000);
       contactForm.reset();
     });
   }
@@ -163,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Toast Notification System
+// Toast Notification
 function showToast(message, duration = 3500) {
   let toast = document.querySelector('.toast-box');
   if (!toast) {
@@ -173,7 +158,7 @@ function showToast(message, duration = 3500) {
   }
 
   toast.innerHTML = `
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.2">
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
     </svg>
     <span>${message}</span>
@@ -185,60 +170,4 @@ function showToast(message, duration = 3500) {
   window.toastTimeout = setTimeout(() => {
     toast.classList.remove('show');
   }, duration);
-}
-
-// Modal System
-function setupConsultationModal() {
-  const modal = document.getElementById('quoteModal');
-  if (!modal) return;
-
-  const closeBtn = modal.querySelector('.modal-close-btn');
-  const openBtns = document.querySelectorAll('[data-open-modal="quoteModal"]');
-
-  openBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const packageName = btn.getAttribute('data-package') || '';
-      if (packageName) {
-        const packageInput = modal.querySelector('#modalPackageInput');
-        if (packageInput) packageInput.value = packageName;
-      }
-      modal.classList.add('active');
-    });
-  });
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      modal.classList.remove('active');
-    });
-  }
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.remove('active');
-    }
-  });
-
-  const modalForm = modal.querySelector('#modalQuoteForm');
-  if (modalForm) {
-    modalForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = modalForm.querySelector('input[type="text"]')?.value.trim() || 'Pelanggan';
-      const phone = modalForm.querySelector('input[type="tel"]')?.value.trim() || '-';
-      const pkg = modalForm.querySelector('#modalPackageInput')?.value || 'Konsultasi CCTV';
-      const notes = modalForm.querySelector('textarea')?.value.trim() || '-';
-
-      const msg = `Halo Cahaya Mustika Internesia, saya ingin berkonsultasi mengenai paket CCTV.\n\n` +
-                  `Nama: ${name}\n` +
-                  `Nomor HP/WA: ${phone}\n` +
-                  `Paket Pilihan: ${pkg}\n` +
-                  `Catatan: ${notes}`;
-
-      modal.classList.remove('active');
-      const waUrl = `https://wa.me/${CM_WA_NUMBER}?text=${encodeURIComponent(msg)}`;
-      window.open(waUrl, '_blank', 'noopener');
-      showToast('Permintaan survei & konsultasi berhasil terkirim!');
-      modalForm.reset();
-    });
-  }
 }
