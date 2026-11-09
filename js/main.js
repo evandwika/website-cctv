@@ -147,11 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
     el.textContent = new Date().getFullYear();
   });
 
-  // Portfolio Lightbox Modal
+  // Portfolio Lightbox Modal (with event delegation for dynamically cloned cards)
   const initPortfolioModal = () => {
-    const portCards = document.querySelectorAll('.port-card');
-    if (!portCards.length) return;
-
     let modal = document.querySelector('.port-modal');
     if (!modal) {
       modal = document.createElement('div');
@@ -232,14 +229,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    portCards.forEach(card => {
-      card.addEventListener('click', () => openModal(card));
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
+    // Use event delegation so original and cloned cards both work seamlessly
+    document.addEventListener('click', (e) => {
+      const card = e.target.closest('.port-card');
+      if (!card) return;
+      openModal(card);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const card = e.target.closest('.port-card');
+        if (card && document.activeElement === card) {
           e.preventDefault();
           openModal(card);
         }
-      });
+      }
     });
 
     closeBtn.addEventListener('click', closeModal);
@@ -256,6 +260,238 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   initPortfolioModal();
+
+  // Portfolio Seamless Infinite Carousel (Homepage)
+  const initPortfolioSlider = () => {
+    const viewport = document.getElementById('portSliderViewport');
+    const track = document.getElementById('portSliderTrack');
+    const prevBtn = document.getElementById('portPrevBtn');
+    const nextBtn = document.getElementById('portNextBtn');
+    const dotsContainer = document.getElementById('portSliderDots');
+
+    if (!viewport || !track || !prevBtn || !nextBtn) return;
+
+    const originalCards = Array.from(track.querySelectorAll('.port-card'));
+    const totalOriginals = originalCards.length;
+    if (totalOriginals === 0) return;
+
+    // Clone all cards before and after for true seamless continuous looping
+    const clonesBefore = [];
+    const clonesAfter = [];
+
+    originalCards.forEach((card) => {
+      const cloneA = card.cloneNode(true);
+      cloneA.classList.add('port-clone');
+      cloneA.setAttribute('aria-hidden', 'true');
+      clonesBefore.push(cloneA);
+
+      const cloneB = card.cloneNode(true);
+      cloneB.classList.add('port-clone');
+      cloneB.setAttribute('aria-hidden', 'true');
+      clonesAfter.push(cloneB);
+    });
+
+    // Prepend clonesBefore to track
+    clonesBefore.forEach(clone => track.insertBefore(clone, originalCards[0]));
+    // Append clonesAfter to track
+    clonesAfter.forEach(clone => track.appendChild(clone));
+
+    const cloneCount = totalOriginals; // 6 clones before
+    let currentIndex = 0;
+    let isTransitioning = false;
+    let transitionTimer = null;
+
+    // Create pagination dots
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < totalOriginals; i++) {
+        const dot = document.createElement('button');
+        dot.className = `port-dot ${i === 0 ? 'active' : ''}`;
+        dot.setAttribute('aria-label', `Pindah ke slide ${i + 1}`);
+        dot.type = 'button';
+        dot.addEventListener('click', () => {
+          if (isTransitioning) return;
+          moveToIndex(i);
+        });
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    const getStepWidth = () => {
+      const card = track.querySelector('.port-card');
+      const gap = parseFloat(window.getComputedStyle(track).gap) || 24;
+      return card.getBoundingClientRect().width + gap;
+    };
+
+    const updateDots = (index) => {
+      if (!dotsContainer) return;
+      const normalizedIndex = ((index % totalOriginals) + totalOriginals) % totalOriginals;
+      const dots = dotsContainer.querySelectorAll('.port-dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === normalizedIndex);
+      });
+    };
+
+    const setPosition = (index, animate = false) => {
+      const step = getStepWidth();
+      const offset = (index + cloneCount) * step;
+      if (animate) {
+        track.style.transition = 'transform 0.48s cubic-bezier(0.25, 1, 0.5, 1)';
+      } else {
+        track.style.transition = 'none';
+      }
+      track.style.transform = `translate3d(-${offset}px, 0, 0)`;
+    };
+
+    // Initialize at index 0 (silent, no animation)
+    setPosition(0, false);
+    updateDots(0);
+
+    const moveToIndex = (index) => {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      currentIndex = index;
+      setPosition(currentIndex, true);
+      updateDots(currentIndex);
+
+      // Safety timeout in case transitionend event is missed
+      clearTimeout(transitionTimer);
+      transitionTimer = setTimeout(() => {
+        checkTeleport();
+      }, 550);
+    };
+
+    const checkTeleport = () => {
+      if (currentIndex >= totalOriginals) {
+        // Seamless silent jump forward -> real index (e.g. 6 -> 0)
+        currentIndex = currentIndex - totalOriginals;
+        setPosition(currentIndex, false);
+      } else if (currentIndex < 0) {
+        // Seamless silent jump backward -> real index (e.g. -1 -> 5)
+        currentIndex = currentIndex + totalOriginals;
+        setPosition(currentIndex, false);
+      }
+      isTransitioning = false;
+    };
+
+    track.addEventListener('transitionend', (e) => {
+      if (e.target !== track) return;
+      clearTimeout(transitionTimer);
+      checkTeleport();
+    });
+
+    // Next Button (Always slides to the RIGHT without ever rewinding left)
+    const handleNext = () => {
+      if (isTransitioning) return;
+      moveToIndex(currentIndex + 1);
+    };
+
+    // Prev Button (Always slides to the LEFT without ever rewinding right)
+    const handlePrev = () => {
+      if (isTransitioning) return;
+      moveToIndex(currentIndex - 1);
+    };
+
+    nextBtn.addEventListener('click', handleNext);
+    prevBtn.addEventListener('click', handlePrev);
+
+    // Keyboard navigation (ArrowLeft & ArrowRight)
+    viewport.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        handleNext();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        handlePrev();
+      }
+    });
+
+    // Re-adjust position accurately on window resize
+    let resizeTimer = null;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        setPosition(currentIndex, false);
+      }, 100);
+    });
+
+    // Touch & Mouse Drag Gestures
+    let startX = 0;
+    let currentX = 0;
+    let isDragging = false;
+    let hasMoved = false;
+    let initialTransform = 0;
+
+    const onDragStart = (e) => {
+      if (isTransitioning) return;
+      isDragging = true;
+      hasMoved = false;
+      startX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+      currentX = startX;
+
+      const step = getStepWidth();
+      initialTransform = -((currentIndex + cloneCount) * step);
+      track.style.transition = 'none';
+      if (!e.type.includes('touch')) {
+        viewport.style.cursor = 'grabbing';
+      }
+    };
+
+    const onDragMove = (e) => {
+      if (!isDragging) return;
+      currentX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+      const diffX = currentX - startX;
+
+      if (Math.abs(diffX) > 6) {
+        hasMoved = true;
+      }
+
+      track.style.transform = `translate3d(${initialTransform + diffX}px, 0, 0)`;
+    };
+
+    const onDragEnd = () => {
+      if (!isDragging) return;
+      isDragging = false;
+      viewport.style.cursor = '';
+
+      const diffX = currentX - startX;
+      const threshold = 55;
+
+      if (diffX < -threshold) {
+        moveToIndex(currentIndex + 1);
+      } else if (diffX > threshold) {
+        moveToIndex(currentIndex - 1);
+      } else {
+        // Snap back to current
+        setPosition(currentIndex, true);
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 300);
+      }
+
+      setTimeout(() => {
+        hasMoved = false;
+      }, 60);
+    };
+
+    viewport.addEventListener('mousedown', onDragStart);
+    window.addEventListener('mousemove', onDragMove);
+    window.addEventListener('mouseup', onDragEnd);
+
+    viewport.addEventListener('touchstart', onDragStart, { passive: true });
+    viewport.addEventListener('touchmove', onDragMove, { passive: true });
+    viewport.addEventListener('touchend', onDragEnd, { passive: true });
+
+    // Block Lightbox modal from opening if the gesture was a drag/swipe
+    track.addEventListener('click', (e) => {
+      if (hasMoved) {
+        e.stopImmediatePropagation();
+        e.preventDefault();
+      }
+    }, true);
+  };
+
+  initPortfolioSlider();
 });
 
 // Toast Notification

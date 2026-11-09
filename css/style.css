@@ -1885,6 +1885,191 @@ button, input, select, textarea {
   border-top: 1px solid #E2E8F0;
 }
 
+/* ==========================================================================
+   HOMEPAGE PORTFOLIO SEAMLESS INFINITE SLIDER / CAROUSEL
+   ========================================================================== */
+.port-slider-wrapper {
+  position: relative;
+  margin-top: 2.25rem;
+}
+
+.port-slider-viewport {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  --gap: 1.5rem;
+  --card-width: calc((100% - 2 * var(--gap)) / 3);
+  padding: 14px 0;
+  border-radius: 18px;
+  cursor: grab;
+  outline: none;
+}
+
+.port-slider-viewport:active {
+  cursor: grabbing;
+}
+
+.port-slider-viewport:focus-visible {
+  outline: 3px solid #0758D9;
+  outline-offset: 2px;
+}
+
+.port-slider-track {
+  display: flex;
+  gap: var(--gap);
+  will-change: transform;
+  /* Transitions are controlled dynamically in JS for seamless instant loop reset */
+}
+
+.port-slider-track .port-card {
+  flex: 0 0 var(--card-width);
+  width: var(--card-width);
+  max-width: var(--card-width);
+  min-width: 0;
+  height: 380px;
+}
+
+/* Circular Left/Right Navigation Buttons */
+.port-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  color: #071A36;
+  box-shadow: 0 8px 24px rgba(7, 26, 54, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.port-nav-prev {
+  left: -22px;
+}
+
+.port-nav-next {
+  right: -22px;
+}
+
+.port-nav-btn:hover {
+  background: #0758D9;
+  border-color: #0758D9;
+  color: #FFFFFF;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 10px 28px rgba(7, 88, 217, 0.4);
+}
+
+.port-nav-btn:focus-visible {
+  outline: 3px solid #0758D9;
+  outline-offset: 2px;
+}
+
+.port-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Pagination Dots */
+.port-slider-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+
+.port-slider-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #F1F5F9;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #CBD5E1;
+}
+
+.port-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #94A3B8;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.port-dot:hover {
+  background: #0758D9;
+}
+
+.port-dot.active {
+  width: 26px;
+  background: #0758D9;
+  box-shadow: 0 2px 8px rgba(7, 88, 217, 0.4);
+}
+
+.port-dot:focus-visible {
+  outline: 2px solid #0758D9;
+  outline-offset: 2px;
+}
+
+/* Responsive Media Queries for Horizontal Slider */
+@media (max-width: 1024px) {
+  .port-slider-viewport {
+    --card-width: calc((100% - var(--gap)) / 2);
+  }
+  .port-slider-track .port-card {
+    height: 360px;
+  }
+  .port-nav-prev {
+    left: -12px;
+  }
+  .port-nav-next {
+    right: -12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .port-slider-viewport {
+    --card-width: 86%;
+  }
+  .port-slider-track .port-card {
+    height: 350px;
+  }
+  .port-nav-btn {
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .port-nav-prev {
+    left: 4px;
+  }
+  .port-nav-next {
+    right: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .port-slider-viewport {
+    --card-width: 88%;
+  }
+  .port-slider-track .port-card {
+    height: 330px;
+  }
+  .port-nav-btn {
+    display: none;
+  }
+}
+
 /* Responsive Media Queries for Portfolio */
 @media (max-width: 992px) {
   .port-grid {
