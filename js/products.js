@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `).join('')}
           </div>
           <div class="product-footer">
-            <a href="product-detail.html?id=${item.id}" class="btn btn-p btn-sm" style="width: 100%; text-align: center;">Detail Produk</a>
+            <a href="product-detail.html?id=${item.id}" class="btn btn-p btn-sm" style="width: 100%; text-align: center;">Lihat Produk</a>
           </div>
         </div>
       </div>

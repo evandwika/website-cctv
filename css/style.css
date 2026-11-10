@@ -318,8 +318,8 @@ button, input, select, textarea {
    BUTTONS (Safety Orange, Industrial Blue, Deep Navy, Transparan, WhatsApp)
    Sesuai Panduan Pewarnaan PDF:
    - Konsultasi Sekarang / Hubungi Kami: Background #B45309, Hover #92400E
-   - Detail Produk: Background #0758D9, Hover #0645AD
-   - Lihat Produk / Proyek: Background #071A36, Hover #0758D9
+   - Lihat Produk: Background #FFFFFF, Tulisan & Border #0758D9, Hover #EFF6FF
+   - Lihat Proyek / Selengkapnya: Background #071A36, Hover #0758D9
    - WhatsApp: Background #25D366, Hover #128C7E
    ========================================================================== */
 .btn {
@@ -410,26 +410,32 @@ button, input, select, textarea {
   box-shadow: 0 6px 18px rgba(7, 88, 217, 0.25);
 }
 
-/* Industrial Blue Button (PDF: Detail Produk) */
+/* Button Lihat Produk (Background Putih, Tulisan Biru Industri #0758D9) */
 .btn-p,
 .btn-detail {
-  background: #0758D9;
-  color: #FFFFFF;
+  background: #FFFFFF !important;
+  color: #0758D9 !important;
   font-weight: 700;
-  border: 1px solid transparent;
+  border: 1.5px solid #0758D9 !important;
+  box-shadow: 0 2px 6px rgba(7, 88, 217, 0.08);
   transition: all 0.25s ease;
 }
 
 .btn-p:hover,
 .btn-detail:hover {
-  background: #0645AD;
-  color: #FFFFFF;
+  background: #EFF6FF !important;
+  color: #0645AD !important;
+  border-color: #0645AD !important;
   transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(7, 88, 217, 0.18);
 }
 
 .btn-p:active,
 .btn-detail:active {
-  background: #05378A;
+  background: #DBEAFE !important;
+  color: #05378A !important;
+  border-color: #05378A !important;
+  transform: translateY(0);
 }
 
 /* Outline Buttons */
@@ -940,25 +946,30 @@ button, input, select, textarea {
   width: 100%;
   text-align: center;
   justify-content: center;
-  background: #0758D9;
-  color: #FFFFFF;
+  background: #FFFFFF !important;
+  color: #0758D9 !important;
+  border: 1.5px solid #0758D9 !important;
   font-weight: 700;
   padding: 11px 18px;
   border-radius: 8px;
   font-size: 0.92rem;
-  box-shadow: 0 2px 8px rgba(7, 88, 217, 0.22);
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 6px rgba(7, 88, 217, 0.08);
+  transition: all 0.25s ease;
 }
 
 .product-footer .btn:hover {
-  background: #0645AD;
-  color: #FFFFFF;
+  background: #EFF6FF !important;
+  color: #0645AD !important;
+  border-color: #0645AD !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(7, 88, 217, 0.35);
+  box-shadow: 0 4px 14px rgba(7, 88, 217, 0.18);
 }
 
 .product-footer .btn:active {
-  background: #05378A;
+  background: #DBEAFE !important;
+  color: #05378A !important;
+  border-color: #05378A !important;
+  transform: translateY(0);
 }
 
 .more {
