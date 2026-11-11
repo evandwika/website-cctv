@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -54,7 +54,7 @@
   <!-- ================= SPLASH SCREEN (Pre-rendered for seamless page transitions) ================= -->
   <div id="splash" class="splash-screen" aria-hidden="true">
     <div class="splash-box">
-      <img src="assets/logo/logo-cmi-diamond.jpg" alt="PT Cahaya Mustika Internesia" class="splash-logo" width="135" height="135">
+      <img src="assets/logo/logo-cmi-diamond.webp" alt="PT Cahaya Mustika Internesia" class="splash-logo" width="135" height="135">
       <p class="splash-sub">Mining & Industrial Surveillance Solutions</p>
       <div class="splash-bar"></div>
     </div>
@@ -70,23 +70,7 @@
       <nav class="menu" id="menu" aria-label="Menu utama">
         <a href="index.html">Beranda</a>
         
-        <div class="dd">
-          <button class="dd-btn" aria-haspopup="true" aria-expanded="false">
-            Produk
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M1 1l4 4 4-4"></path>
-            </svg>
-          </button>
-          <div class="dd-list">
-            <a href="products.html">Semua Produk</a>
-            <a href="products.html?cat=ip-camera">CCTV IP Camera Outdoor</a>
-            <a href="products.html?cat=ptz-tambang">CCTV PTZ Tambang</a>
-            <a href="products.html?cat=thermal">CCTV Thermal</a>
-            <a href="products.html?cat=solar-powered">CCTV Solar Powered</a>
-            <a href="products.html?cat=explosion-proof">CCTV Explosion Proof</a>
-            <a href="products.html?cat=anpr-lpr">CCTV ANPR / LPR</a>
-          </div>
-        </div>
+        <a href="products.html">Produk</a>
 
         <a href="portfolio.html">Portofolio</a>
         <a href="articles.html" class="active" aria-current="page">Artikel</a>
@@ -117,129 +101,255 @@
       </div>
     </section>
 
-    <!-- ================= ARTICLES GRID ================= -->
+    <!-- ================= ARTICLES SECTION ================= -->
     <section class="sec">
       <div class="wrap">
-        <div class="article-grid">
-          <!-- Article 1 -->
-          <article class="article-card">
-            <div class="article-thumb">
-              <span class="article-category-tag">Explosion-Proof</span>
-              <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=800&q=80" alt="Mengenal Standar Kamera CCTV Explosion-Proof untuk Area Berbahaya di Pertambangan" loading="lazy">
+        <!-- Artikel Search Toolbar -->
+        <div class="products-filter-section" style="margin-bottom: 2.5rem;">
+          <div class="product-toolbar-grid" style="grid-template-columns: 1fr auto;">
+            <div class="toolbar-search-group" style="flex: 1 1 auto;">
+              <div class="search-input-inner">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0758D9" stroke-width="2.2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="articleSearchInput" placeholder="Cari artikel, panduan teknis, standar ATEX, thermal, solar CCTV..." autocomplete="off" />
+                <button type="button" id="clearArticleSearchBtn" class="clear-search-btn" title="Hapus teks pencarian" style="display: none;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="18" x2="18" y2="18"></line></svg>
+                </button>
+              </div>
+              <button type="button" id="articleSearchSubmitBtn" class="btn btn-search-action">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span>Cari Artikel</span>
+              </button>
             </div>
-            <div class="article-body">
-              <span class="article-date">02 November 2026</span>
-              <h3 class="article-title">
-                <a href="article-detail.html?slug=atex-cctv-tambang">Mengenal Standar Kamera CCTV Explosion-Proof untuk Area Berbahaya di Pertambangan</a>
-              </h3>
-              <p class="article-snippet">
-                Mengapa gudang bahan peledak (handak), refinery, dan pit tambang bawah tanah mewajibkan sertifikasi ATEX/IECEx Zone 1 dengan material Stainless Steel 316L anti-percikan api.
-              </p>
-              <a href="article-detail.html?slug=atex-cctv-tambang" class="article-readmore">
-                Baca Selengkapnya &rarr;
-              </a>
+            <button type="button" id="resetArticleBtn" class="btn btn-reset-action" title="Tampilkan semua artikel">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+              <span>Reset</span>
+            </button>
+          </div>
+          <div class="catalog-status-bar" style="margin-top: 1rem;">
+            <div id="articleResultCount" class="catalog-result-count">
+              Menampilkan <strong>6 artikel</strong> panduan & teknologi CCTV pertambangan
             </div>
-          </article>
+          </div>
+        </div>
 
-          <!-- Article 2 -->
-          <article class="article-card">
-            <div class="article-thumb">
-              <span class="article-category-tag">Solar CCTV</span>
-              <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80" alt="Solar CCTV Tower: Solusi Pengawasan Tambang Tanpa Bergantung pada Listrik PLN" loading="lazy">
-            </div>
-            <div class="article-body">
-              <span class="article-date">28 Oktober 2026</span>
-              <h3 class="article-title">
-                <a href="article-detail.html?slug=solar-cctv-pit-tambang">Solar CCTV Tower: Solusi Pengawasan Tambang Tanpa Bergantung pada Listrik PLN</a>
-              </h3>
-              <p class="article-snippet">
-                Bagaimana tower CCTV portable bertenaga surya 200W dan baterai lithium LiFePO4 mampu menyala stabil non-stop meski diterpa cuaca hujan dan mendung berhari-hari di pedalaman.
-              </p>
-              <a href="article-detail.html?slug=solar-cctv-pit-tambang" class="article-readmore">
-                Baca Selengkapnya &rarr;
-              </a>
-            </div>
-          </article>
+        <!-- 2-Column Layout: Main Articles + Recent Portfolio Posts Sidebar -->
+        <div class="articles-layout-grid">
+          <!-- Main Articles Column -->
+          <div class="articles-main-col">
+            <div class="article-grid" id="articleCardsGrid">
+              <!-- Article 1 -->
+              <article class="article-card">
+                <div class="article-thumb">
+                  <span class="article-category-tag">Explosion-Proof</span>
+                  <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=800&q=80" alt="Mengenal Standar Kamera CCTV Explosion-Proof untuk Area Berbahaya di Pertambangan" loading="lazy">
+                </div>
+                <div class="article-body">
+                  <span class="article-date">02 November 2026</span>
+                  <h3 class="article-title">
+                    <a href="article-detail.html?slug=atex-cctv-tambang">Mengenal Standar Kamera CCTV Explosion-Proof untuk Area Berbahaya di Pertambangan</a>
+                  </h3>
+                  <p class="article-snippet">
+                    Mengapa gudang bahan peledak (handak), refinery, dan pit tambang bawah tanah mewajibkan sertifikasi ATEX/IECEx Zone 1 dengan material Stainless Steel 316L anti-percikan api.
+                  </p>
+                  <a href="article-detail.html?slug=atex-cctv-tambang" class="article-readmore">
+                    Baca Selengkapnya &rarr;
+                  </a>
+                </div>
+              </article>
 
-          <!-- Article 3 -->
-          <article class="article-card">
-            <div class="article-thumb">
-              <span class="article-category-tag">Thermal</span>
-              <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80" alt="Kamera Thermal untuk Mendeteksi Potensi Kebakaran pada Stockpile Batubara" loading="lazy">
-            </div>
-            <div class="article-body">
-              <span class="article-date">21 Oktober 2026</span>
-              <h3 class="article-title">
-                <a href="article-detail.html?slug=thermal-stockpile-batubara">Kamera Thermal untuk Mendeteksi Potensi Kebakaran pada Stockpile Batubara</a>
-              </h3>
-              <p class="article-snippet">
-                Teknologi deteksi kenaikan suhu tumpukan batubara dari dalam sebelum muncul lidah api, membantu tim safety K3 meredam titik api secara presisi dan terukur.
-              </p>
-              <a href="article-detail.html?slug=thermal-stockpile-batubara" class="article-readmore">
-                Baca Selengkapnya &rarr;
-              </a>
-            </div>
-          </article>
+              <!-- Article 2 -->
+              <article class="article-card">
+                <div class="article-thumb">
+                  <span class="article-category-tag">Solar CCTV</span>
+                  <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80" alt="Solar CCTV Tower: Solusi Pengawasan Tambang Tanpa Bergantung pada Listrik PLN" loading="lazy">
+                </div>
+                <div class="article-body">
+                  <span class="article-date">28 Oktober 2026</span>
+                  <h3 class="article-title">
+                    <a href="article-detail.html?slug=solar-cctv-pit-tambang">Solar CCTV Tower: Solusi Pengawasan Tambang Tanpa Bergantung pada Listrik PLN</a>
+                  </h3>
+                  <p class="article-snippet">
+                    Bagaimana tower CCTV portable bertenaga surya 200W dan baterai lithium LiFePO4 mampu menyala stabil non-stop meski diterpa cuaca hujan dan mendung berhari-hari di pedalaman.
+                  </p>
+                  <a href="article-detail.html?slug=solar-cctv-pit-tambang" class="article-readmore">
+                    Baca Selengkapnya &rarr;
+                  </a>
+                </div>
+              </article>
 
-          <!-- Article 4 -->
-          <article class="article-card">
-            <div class="article-thumb">
-              <span class="article-category-tag">AI Alat Berat</span>
-              <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=800&q=80" alt="Fungsi Kamera AI untuk Memantau Blind Spot dan Keselamatan Operator Alat Berat Tambang" loading="lazy">
-            </div>
-            <div class="article-body">
-              <span class="article-date">15 Oktober 2026</span>
-              <h3 class="article-title">
-                <a href="article-detail.html?slug=fleet-ai-alat-berat">Fungsi Kamera AI untuk Memantau Blind Spot dan Keselamatan Operator Alat Berat Tambang</a>
-              </h3>
-              <p class="article-snippet">
-                Sistem pendeteksi titik buta radar 360 derajat di sekeliling dump truck raksasa serta sensor pengawas kelelahan (kantuk) operator untuk menekan angka kecelakaan kerja.
-              </p>
-              <a href="article-detail.html?slug=fleet-ai-alat-berat" class="article-readmore">
-                Baca Selengkapnya &rarr;
-              </a>
-            </div>
-          </article>
+              <!-- Article 3 -->
+              <article class="article-card">
+                <div class="article-thumb">
+                  <span class="article-category-tag">Thermal</span>
+                  <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80" alt="Kamera Thermal untuk Mendeteksi Potensi Kebakaran pada Stockpile Batubara" loading="lazy">
+                </div>
+                <div class="article-body">
+                  <span class="article-date">21 Oktober 2026</span>
+                  <h3 class="article-title">
+                    <a href="article-detail.html?slug=thermal-stockpile-batubara">Kamera Thermal untuk Mendeteksi Potensi Kebakaran pada Stockpile Batubara</a>
+                  </h3>
+                  <p class="article-snippet">
+                    Teknologi deteksi kenaikan suhu tumpukan batubara dari dalam sebelum muncul lidah api, membantu tim safety K3 meredam titik api secara presisi dan terukur.
+                  </p>
+                  <a href="article-detail.html?slug=thermal-stockpile-batubara" class="article-readmore">
+                    Baca Selengkapnya &rarr;
+                  </a>
+                </div>
+              </article>
 
-          <!-- Article 5 -->
-          <article class="article-card">
-            <div class="article-thumb">
-              <span class="article-category-tag">Wireless PTP</span>
-              <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80" alt="Mengenal Wireless Point-to-Point untuk Transmisi CCTV Jarak Jauh di Area Tambang" loading="lazy">
-            </div>
-            <div class="article-body">
-              <span class="article-date">09 Oktober 2026</span>
-              <h3 class="article-title">
-                <a href="article-detail.html?slug=transmisi-wireless-ptp-tambang">Mengenal Wireless Point-to-Point untuk Transmisi CCTV Jarak Jauh di Area Tambang</a>
-              </h3>
-              <p class="article-snippet">
-                Menghubungkan puluhan kamera beresolusi 4K dari dasar pit tambang ke Central Control Room sejauh 15 kilometer tanpa biaya mahal penarikan kabel fiber optik.
-              </p>
-              <a href="article-detail.html?slug=transmisi-wireless-ptp-tambang" class="article-readmore">
-                Baca Selengkapnya &rarr;
-              </a>
-            </div>
-          </article>
+              <!-- Article 4 -->
+              <article class="article-card">
+                <div class="article-thumb">
+                  <span class="article-category-tag">AI Alat Berat</span>
+                  <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=800&q=80" alt="Fungsi Kamera AI untuk Memantau Blind Spot dan Keselamatan Operator Alat Berat Tambang" loading="lazy">
+                </div>
+                <div class="article-body">
+                  <span class="article-date">15 Oktober 2026</span>
+                  <h3 class="article-title">
+                    <a href="article-detail.html?slug=fleet-ai-alat-berat">Fungsi Kamera AI untuk Memantau Blind Spot dan Keselamatan Operator Alat Berat Tambang</a>
+                  </h3>
+                  <p class="article-snippet">
+                    Sistem pendeteksi titik buta radar 360 derajat di sekeliling dump truck raksasa serta sensor pengawas kelelahan (kantuk) operator untuk menekan angka kecelakaan kerja.
+                  </p>
+                  <a href="article-detail.html?slug=fleet-ai-alat-berat" class="article-readmore">
+                    Baca Selengkapnya &rarr;
+                  </a>
+                </div>
+              </article>
 
-          <!-- Article 6 -->
-          <article class="article-card">
-            <div class="article-thumb">
-              <span class="article-category-tag">IP68/IP69K</span>
-              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Memilih Kamera CCTV Tahan Debu dan Air untuk Area Conveyor Tambang" loading="lazy">
+              <!-- Article 5 -->
+              <article class="article-card">
+                <div class="article-thumb">
+                  <span class="article-category-tag">Wireless PTP</span>
+                  <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80" alt="Mengenal Wireless Point-to-Point untuk Transmisi CCTV Jarak Jauh di Area Tambang" loading="lazy">
+                </div>
+                <div class="article-body">
+                  <span class="article-date">09 Oktober 2026</span>
+                  <h3 class="article-title">
+                    <a href="article-detail.html?slug=transmisi-wireless-ptp-tambang">Mengenal Wireless Point-to-Point untuk Transmisi CCTV Jarak Jauh di Area Tambang</a>
+                  </h3>
+                  <p class="article-snippet">
+                    Menghubungkan puluhan kamera beresolusi 4K dari dasar pit tambang ke Central Control Room sejauh 15 kilometer tanpa biaya mahal penarikan kabel fiber optik.
+                  </p>
+                  <a href="article-detail.html?slug=transmisi-wireless-ptp-tambang" class="article-readmore">
+                    Baca Selengkapnya &rarr;
+                  </a>
+                </div>
+              </article>
+
+              <!-- Article 6 -->
+              <article class="article-card">
+                <div class="article-thumb">
+                  <span class="article-category-tag">IP68/IP69K</span>
+                  <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Memilih Kamera CCTV Tahan Debu dan Air untuk Area Conveyor Tambang" loading="lazy">
+                </div>
+                <div class="article-body">
+                  <span class="article-date">01 Oktober 2026</span>
+                  <h3 class="article-title">
+                    <a href="article-detail.html?slug=cctv-conveyor-belt-tambang">Memilih Kamera CCTV Tahan Debu dan Air untuk Area Conveyor Tambang</a>
+                  </h3>
+                  <p class="article-snippet">
+                    Tips memilih dudukan bracket anti-getaran dan lensa pembersih udara (air-purge) agar kamera tidak cepat kotor dan rusak akibat debu pekat ban berjalan tambang.
+                  </p>
+                  <a href="article-detail.html?slug=cctv-conveyor-belt-tambang" class="article-readmore">
+                    Baca Selengkapnya &rarr;
+                  </a>
+                </div>
+              </article>
             </div>
-            <div class="article-body">
-              <span class="article-date">01 Oktober 2026</span>
-              <h3 class="article-title">
-                <a href="article-detail.html?slug=cctv-conveyor-belt-tambang">Memilih Kamera CCTV Tahan Debu dan Air untuk Area Conveyor Tambang</a>
-              </h3>
-              <p class="article-snippet">
-                Tips memilih dudukan bracket anti-getaran dan lensa pembersih udara (air-purge) agar kamera tidak cepat kotor dan rusak akibat debu pekat ban berjalan tambang.
-              </p>
-              <a href="article-detail.html?slug=cctv-conveyor-belt-tambang" class="article-readmore">
-                Baca Selengkapnya &rarr;
+
+            <!-- Empty State -->
+            <div id="articleEmptyState" style="display: none; text-align: center; padding: 4rem 2rem; background: #FFFFFF; border-radius: 16px; border: 1.5px dashed #CBD5E1; margin-top: 1.5rem;">
+              <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.8" style="margin-bottom: 1rem;">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: #071A36; margin-bottom: 0.5rem;">Artikel Tidak Ditemukan</h3>
+              <p style="color: #64748B; font-size: 0.95rem; max-width: 440px; margin: 0 auto 1.5rem;">Tidak ada artikel yang cocok dengan kata kunci yang Anda masukkan. Coba gunakan kata kunci umum seperti <em>"solar"</em>, <em>"thermal"</em>, atau <em>"atex"</em>.</p>
+              <button type="button" id="emptyResetBtn" class="btn btn-p" style="padding: 10px 22px;">Reset Pencarian</button>
+            </div>
+          </div>
+
+          <!-- Sidebar: Postingan Portofolio Terbaru & Hubungi Kami -->
+          <aside class="articles-sidebar">
+            <div class="sidebar-portfolio-card">
+              <div class="sidebar-widget-header">
+                <span class="sidebar-widget-badge">Dokumentasi Lapangan</span>
+                <h3 class="sidebar-widget-title">Portofolio Proyek Terbaru</h3>
+                <p class="sidebar-widget-desc">Implementasi instalasi CCTV dan sistem pengawasan site pertambangan.</p>
+              </div>
+              <div class="recent-portfolio-items">
+                <!-- Port Item 1 -->
+                <a href="portfolio.html" class="recent-port-item">
+                  <div class="recent-port-thumb">
+                    <img src="assets/portfolio/cctv-pit-tandemvu-solar.webp" alt="Sistem CCTV Solar 4G TandemVu PTZ Pit Tambang" loading="lazy">
+                  </div>
+                  <div class="recent-port-info">
+                    <span class="recent-port-tag">Pit & Solar 4G</span>
+                    <h4 class="recent-port-title">Sistem CCTV Solar 4G TandemVu PTZ Pit Tambang Batubara</h4>
+                    <span class="recent-port-meta">Solusi Off-Grid Mandiri</span>
+                  </div>
+                </a>
+
+                <!-- Port Item 2 -->
+                <a href="portfolio.html" class="recent-port-item">
+                  <div class="recent-port-thumb">
+                    <img src="assets/portfolio/cctv-instalasi-tower-pit.webp" alt="Instalasi Menara Tiang CCTV Pit Tambang" loading="lazy">
+                  </div>
+                  <div class="recent-port-info">
+                    <span class="recent-port-tag">Instalasi Pit</span>
+                    <h4 class="recent-port-title">Instalasi Menara Tiang CCTV Pit & Modul Tenaga Surya</h4>
+                    <span class="recent-port-meta">Konstruksi & Rigging Site</span>
+                  </div>
+                </a>
+
+                <!-- Port Item 3 -->
+                <a href="portfolio.html" class="recent-port-item">
+                  <div class="recent-port-thumb">
+                    <img src="assets/portfolio/cctv-tandemvu-unit.webp" alt="Pre-Commissioning Kamera Dual-Lens TandemVu PTZ" loading="lazy">
+                  </div>
+                  <div class="recent-port-info">
+                    <span class="recent-port-tag">Komisioning Unit</span>
+                    <h4 class="recent-port-title">Pre-Commissioning Kamera Dual-Lens Hikvision TandemVu PTZ</h4>
+                    <span class="recent-port-meta">Kalibrasi & FAT/SAT Test</span>
+                  </div>
+                </a>
+
+                <!-- Port Item 4 -->
+                <a href="portfolio.html" class="recent-port-item">
+                  <div class="recent-port-thumb">
+                    <img src="assets/portfolio/cctv-tandemvu-detail.webp" alt="Terminasi Kabel & Baseplate Weatherproof" loading="lazy">
+                  </div>
+                  <div class="recent-port-info">
+                    <span class="recent-port-tag">Proteksi Weatherproof</span>
+                    <h4 class="recent-port-title">Terminasi Kabel & Baseplate Heavy-Duty Weatherproof</h4>
+                    <span class="recent-port-meta">Standar Proteksi IP67</span>
+                  </div>
+                </a>
+              </div>
+              <div class="sidebar-portfolio-footer">
+                <a href="portfolio.html" class="btn btn-p btn-sm" style="width: 100%; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                  <span>Lihat Semua Portofolio</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Konsultasi Card -->
+            <div class="sidebar-cta-box">
+              <div class="sidebar-cta-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              </div>
+              <h3 class="sidebar-cta-title">Konsultasi Solusi Tambang</h3>
+              <p class="sidebar-cta-desc">Diskusikan kebutuhan kamera CCTV pertambangan, solar off-grid, maupun explosion-proof bersama tim teknis bersertifikasi kami.</p>
+              <a href="https://wa.me/628113301819?text=Halo%20PT%20Cahaya%20Mustika%20Internesia,%20saya%20ingin%20konsultasi%20pengadaan%20CCTV%20tambang" target="_blank" rel="noopener noreferrer" class="btn btn-orange btn-sm" style="width: 100%; justify-content: center;">
+                Hubungi via WhatsApp
               </a>
             </div>
-          </article>
+          </aside>
         </div>
       </div>
     </section>
@@ -250,7 +360,7 @@
   <footer class="foot">
     <div class="wrap foot-in">
       <div>
-        <img src="assets/logo/logo-cmi-diamond.jpg" alt="PT Cahaya Mustika Internesia" class="flogo" loading="lazy">
+        <img src="assets/logo/logo-cmi-diamond.webp" alt="PT Cahaya Mustika Internesia" class="flogo" loading="lazy">
         <p>
           Penyedia solusi terintegrasi perangkat surveilans dan kamera CCTV industrial grade khusus area pertambangan batubara, nikel, emas, serta industri berat di seluruh Indonesia.
         </p>
@@ -285,5 +395,69 @@
 
   <script src="js/splash.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('articleSearchInput');
+      const submitBtn = document.getElementById('articleSearchSubmitBtn');
+      const resetBtn = document.getElementById('resetArticleBtn');
+      const clearBtn = document.getElementById('clearArticleSearchBtn');
+      const emptyResetBtn = document.getElementById('emptyResetBtn');
+      const resultCountEl = document.getElementById('articleResultCount');
+      const emptyStateEl = document.getElementById('articleEmptyState');
+      const articleCards = Array.from(document.querySelectorAll('.article-card'));
+
+      function performSearch() {
+        const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
+        if (clearBtn) {
+          clearBtn.style.display = query ? 'flex' : 'none';
+        }
+        let visibleCount = 0;
+        articleCards.forEach(card => {
+          const text = (card.textContent || '').toLowerCase();
+          const matches = !query || text.includes(query);
+          card.style.display = matches ? '' : 'none';
+          if (matches) visibleCount++;
+        });
+
+        if (resultCountEl) {
+          resultCountEl.innerHTML = query
+            ? `Ditemukan <strong>${visibleCount} artikel</strong> untuk kata kunci "<strong>${query}</strong>"`
+            : `Menampilkan <strong>${articleCards.length} artikel</strong> panduan & teknologi CCTV pertambangan`;
+        }
+
+        if (emptyStateEl) {
+          emptyStateEl.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', performSearch);
+        searchInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            performSearch();
+          }
+        });
+      }
+
+      if (submitBtn) {
+        submitBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          performSearch();
+        });
+      }
+
+      const reset = () => {
+        if (searchInput) {
+          searchInput.value = '';
+        }
+        performSearch();
+      };
+
+      if (resetBtn) resetBtn.addEventListener('click', reset);
+      if (clearBtn) clearBtn.addEventListener('click', reset);
+      if (emptyResetBtn) emptyResetBtn.addEventListener('click', reset);
+    });
+  </script>
 </body>
 </html>

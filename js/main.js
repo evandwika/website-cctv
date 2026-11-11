@@ -203,8 +203,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const titleText = title ? title.textContent.trim() : 'Solusi CCTV Pertambangan';
       const descText = desc ? desc.textContent.trim() : '';
-      const catText = cat ? cat.textContent.trim() : 'Dokumentasi Proyek';
-      const imgSrc = img ? img.getAttribute('src') : '';
+      const catText = card.getAttribute('data-category') || (cat ? cat.textContent.trim() : 'Dokumentasi Proyek');
+      const imgSrc = img ? (img.getAttribute('data-full-img') || img.getAttribute('src')) : '';
       const imgAlt = img ? img.getAttribute('alt') : titleText;
 
       modalCategory.textContent = catText;

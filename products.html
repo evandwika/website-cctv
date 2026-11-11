@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -54,7 +54,7 @@
   <!-- ================= SPLASH SCREEN (Pre-rendered for seamless page transitions) ================= -->
   <div id="splash" class="splash-screen" aria-hidden="true">
     <div class="splash-box">
-      <img src="assets/logo/logo-cmi-diamond.jpg" alt="PT Cahaya Mustika Internesia" class="splash-logo" width="135" height="135">
+      <img src="assets/logo/logo-cmi-diamond.webp" alt="PT Cahaya Mustika Internesia" class="splash-logo" width="135" height="135">
       <p class="splash-sub">Mining & Industrial Surveillance Solutions</p>
       <div class="splash-bar"></div>
     </div>
@@ -69,25 +69,7 @@
 
       <nav class="menu" id="menu" aria-label="Menu utama">
         <a href="index.html">Beranda</a>
-        
-        <div class="dd active">
-          <button class="dd-btn active" aria-haspopup="true" aria-expanded="false" aria-current="page">
-            Produk
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M1 1l4 4 4-4"></path>
-            </svg>
-          </button>
-          <div class="dd-list">
-            <a href="products.html">Semua Produk</a>
-            <a href="products.html?cat=ip-camera">CCTV IP Camera Outdoor</a>
-            <a href="products.html?cat=ptz-tambang">CCTV PTZ Tambang</a>
-            <a href="products.html?cat=thermal">CCTV Thermal</a>
-            <a href="products.html?cat=solar-powered">CCTV Solar Powered</a>
-            <a href="products.html?cat=explosion-proof">CCTV Explosion Proof</a>
-            <a href="products.html?cat=anpr-lpr">CCTV ANPR / LPR</a>
-          </div>
-        </div>
-
+        <a href="products.html" class="active" aria-current="page">Produk</a>
         <a href="portfolio.html">Portofolio</a>
         <a href="articles.html">Artikel</a>
         <a href="contact.html">Kontak Kami</a>
@@ -118,39 +100,76 @@
     </section>
 
     <!-- ================= PRODUCT CATALOG & FILTERS ================= -->
-    <section class="sec">
+    <section class="sec" style="padding-top: 2rem;">
       <div class="wrap">
 
-        <!-- Modern Toolbar Filters -->
-        <div class="catalog-toolbar">
-          <div class="search-box-wrap">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <input 
-              type="text" 
-              id="productSearchInput" 
-              placeholder="Cari model Hikvision (DS-2CD, PTZ, Thermal, Solar, Ex-Proof, ANPR)..." 
-              autocomplete="off"
-            />
+        <!-- Modern Filter Toolbar: Search, Tombol Cari, Kategori Dropdown & Reset -->
+        <div class="products-filter-section">
+          <div class="product-toolbar-grid">
+            <!-- 1. Search Box with Search Button -->
+            <div class="toolbar-search-group">
+              <div class="search-input-inner">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0758D9" stroke-width="2.2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input
+                  type="text"
+                  id="productSearchInput"
+                  placeholder="Cari tipe model (TandemVu, ColorVu, Solar, Thermal, Ex-Proof)..."
+                  autocomplete="off"
+                />
+                <button type="button" id="clearSearchBtn" class="clear-search-btn" title="Hapus teks pencarian" style="display: none;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+              </div>
+              <button type="button" id="searchSubmitBtn" class="btn btn-search-action">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <span>Cari</span>
+              </button>
+            </div>
+
+            <!-- 2. Kategori Dropdown -->
+            <div class="toolbar-select-box">
+              <svg class="select-prefix-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0758D9" stroke-width="2.2">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+              </svg>
+              <select id="categoryFilter" class="toolbar-category-select" aria-label="Pilih Kategori CCTV Tambang">
+                <option value="all">Semua Kategori (18 Model)</option>
+                <option value="ip-camera">CCTV IP Camera Outdoor (3 Model)</option>
+                <option value="ptz-tambang">CCTV PTZ Tambang (3 Model)</option>
+                <option value="thermal">CCTV Thermal (3 Model)</option>
+                <option value="solar-powered">CCTV Solar Powered (3 Model)</option>
+                <option value="explosion-proof">CCTV Explosion Proof (3 Model)</option>
+                <option value="anpr-lpr">CCTV ANPR / LPR (3 Model)</option>
+              </select>
+              <svg class="select-chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+
+            <!-- 3. Tombol Riset (Reset) -->
+            <button type="button" id="resetFilterBtn" class="btn btn-reset-action" title="Reset pencarian dan kategori">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <polyline points="1 4 1 10 7 10"></polyline>
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+              </svg>
+              <span>Reset</span>
+            </button>
+
           </div>
 
-          <div class="filter-select-group">
-            <select id="categoryFilter" aria-label="Filter Kategori CCTV">
-              <option value="all">Semua Kategori CCTV (18 Model)</option>
-              <option value="ip-camera">CCTV IP Camera Outdoor</option>
-              <option value="ptz-tambang">CCTV PTZ Tambang</option>
-              <option value="thermal">CCTV Thermal</option>
-              <option value="solar-powered">CCTV Solar Powered</option>
-              <option value="explosion-proof">CCTV Explosion Proof</option>
-              <option value="anpr-lpr">CCTV ANPR / LPR</option>
-            </select>
-
-            <select id="brandFilter" aria-label="Filter Merk">
-              <option value="all">Semua Lini Produk</option>
-              <option value="hikvision">Hikvision Industrial Official</option>
-            </select>
+          <!-- Status Bar Hasil Pencarian & Kategori -->
+          <div class="catalog-status-bar">
+            <div class="status-left">
+              <span class="status-indicator-dot"></span>
+              <span id="productResultCount" class="result-count-text">
+                Menampilkan <strong>18 model</strong> CCTV tambang resmi Hikvision
+              </span>
+            </div>
           </div>
         </div>
 
@@ -167,7 +186,7 @@
   <footer class="foot">
     <div class="wrap foot-in">
       <div>
-        <img src="assets/logo/logo-cmi-diamond.jpg" alt="PT Cahaya Mustika Internesia" class="flogo" loading="lazy">
+        <img src="assets/logo/logo-cmi-diamond.webp" alt="PT Cahaya Mustika Internesia" class="flogo" loading="lazy">
         <p>
           Penyedia solusi terintegrasi perangkat surveilans dan kamera CCTV industrial grade khusus area pertambangan batubara, nikel, emas, serta industri berat di seluruh Indonesia.
         </p>

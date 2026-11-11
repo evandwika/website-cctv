@@ -1,4 +1,4 @@
-/**
+﻿/**
  * CAHAYA MUSTIKA INTERNESIA - Katalog CCTV Tambang & Industrial
  * Partner Resmi Solusi Surveilans & Kamera CCTV Hikvision Industrial
  * Spesifikasi Teknis Resmi Sesuai Datasheet & Katalog Hikvision Indonesia (hikvision.com/id)
@@ -10,6 +10,8 @@ const cctvProducts = [
   // ==========================================
   {
     id: 'ds-2cd2t43g2-2i',
+    model: 'DS-2CD2T43G2-2I',
+    productName: '4 MP AcuSense Fixed Bullet Network Camera',
     name: 'Hikvision DS-2CD2T43G2-2I 4 MP AcuSense Fixed Bullet Camera',
     category: 'ip-camera',
     categoryName: 'CCTV IP Camera Outdoor',
@@ -17,7 +19,13 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: '4 MP (2688 × 1520) @ 30 fps',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/DS-2CD2T43G2-2I,4I/gambar1.webp',
+    images: [
+      'assets/produk/DS-2CD2T43G2-2I,4I/gambar1.webp',
+      'assets/produk/DS-2CD2T43G2-2I,4I/gambar2.webp',
+      'assets/produk/DS-2CD2T43G2-2I,4I/gambar3.webp',
+      'assets/produk/DS-2CD2T43G2-2I,4I/gambar4.webp'
+    ],
     specs: [
       'Sensor 1/3″ Progressive Scan CMOS Resolusi 4 MP (2688 × 1520 piksel @ 30 fps)',
       'Teknologi AcuSense Deep Learning: Klasifikasi Akurat Manusia & Kendaraan Mengurangi False Alarm',
@@ -71,6 +79,8 @@ const cctvProducts = [
   },
   {
     id: 'ds-2cd2t46g2-2i',
+    model: 'DS-2CD2T46G2-2I',
+    productName: '4 MP DarkFighter Fixed Bullet Network Camera',
     name: 'Hikvision DS-2CD2T46G2-2I 4 MP DarkFighter Bullet Camera',
     category: 'ip-camera',
     categoryName: 'CCTV IP Camera Outdoor',
@@ -78,7 +88,13 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: '4 MP DarkFighter Ultra Low-Light',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/DS-2CD2T46G2-2I,4I/gambar1.webp',
+    images: [
+      'assets/produk/DS-2CD2T46G2-2I,4I/gambar1.webp',
+      'assets/produk/DS-2CD2T46G2-2I,4I/gambar2.webp',
+      'assets/produk/DS-2CD2T46G2-2I,4I/gambar3.webp',
+      'assets/produk/DS-2CD2T46G2-2I,4I/gambar4.webp'
+    ],
     specs: [
       'Sensor 1/3″ Progressive Scan CMOS DarkFighter Resolusi 4 MP (2688 × 1520 @ 30 fps)',
       'Performa Ultra Low-Light Unggulan Powered-by-DarkFighter (Sensitivitas 0.003 Lux @ F1.4)',
@@ -130,6 +146,8 @@ const cctvProducts = [
   },
   {
     id: 'ds-2cd2t47g2-l',
+    model: 'DS-2CD2T47G2-L',
+    productName: '4 MP ColorVu Fixed Bullet Network Camera',
     name: 'Hikvision DS-2CD2T47G2-L 4 MP ColorVu Fixed Bullet Camera',
     category: 'ip-camera',
     categoryName: 'CCTV IP Camera Outdoor',
@@ -137,7 +155,12 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: '4 MP 24/7 Full-Color Imaging',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/DS-2CD2T47G2-L/gambar1.webp',
+    images: [
+      'assets/produk/DS-2CD2T47G2-L/gambar1.webp',
+      'assets/produk/DS-2CD2T47G2-L/gambar2.webp',
+      'assets/produk/DS-2CD2T47G2-L/gambar3.webp'
+    ],
     specs: [
       'Sensor Besar 1/1.8″ Progressive Scan CMOS Resolusi 4 MP (2688 × 1520 piksel @ 30 fps)',
       'Teknologi Revolusioner ColorVu 24/7: Menghasilkan Rekaman Berwarna Penuh Siang dan Malam Tanpa IR',
@@ -189,6 +212,8 @@ const cctvProducts = [
   // ==========================================
   {
     id: 'ds-2de5425iwg-k-4g',
+    model: 'DS-2DE5425IWG-K/4G',
+    productName: '5-inch 4 MP 25× 4G Network Speed Dome',
     name: 'Hikvision DS-2DE5425IWG-K/4G 4 MP 25× 4G Speed Dome',
     category: 'ptz-tambang',
     categoryName: 'CCTV PTZ Tambang',
@@ -196,7 +221,10 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: '4 MP (2560 × 1440) 25× Optical Zoom',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/DS-2DE5425IWG-K4G/gambar1.webp',
+    images: [
+      'assets/produk/DS-2DE5425IWG-K4G/gambar1.webp'
+    ],
     specs: [
       'Sensor 1/2.8″ Progressive Scan CMOS Resolusi 4 MP (2560 × 1440 piksel @ 30 fps)',
       '25× Optical Zoom (focal length 4.8 mm - 120 mm) & 16× Digital Zoom Pantau Detail Jarak Jauh',
@@ -248,6 +276,8 @@ const cctvProducts = [
   },
   {
     id: 'ds-2se7c432iwg-k-4g-14-f0',
+    model: 'DS-2SE7C432IWG-K/4G/14(F0)',
+    productName: 'TandemVu 7-inch 4 MP 32× 4G Network Speed Dome',
     name: 'Hikvision TandemVu DS-2SE7C432IWG-K/4G/14(F0) 32× 4G Dome',
     category: 'ptz-tambang',
     categoryName: 'CCTV PTZ Tambang',
@@ -255,7 +285,10 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: 'Dual 4 MP (Panorama ColorVu + 32× PTZ)',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1528310263766-d7e14ecbc600?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/DS-2SE7C432IWG-K4G14(F0)/gambar1.webp',
+    images: [
+      'assets/produk/DS-2SE7C432IWG-K4G14(F0)/gambar1.webp'
+    ],
     specs: [
       'Arsitektur Inovatif TandemVu: 1 Kamera Mengintegrasikan Lensa Panorama ColorVu & 32× PTZ Zoom',
       'Saluran Panorama 4 MP Lensa F1.0 ColorVu Sudut Lebar 109° Memantau Area Tanpa Pernah Blindspot',
@@ -303,6 +336,8 @@ const cctvProducts = [
   },
   {
     id: 'ds-2df8225ix-aelw-t5',
+    model: 'DS-2DF8225IX-AELW(T5)',
+    productName: 'DarkFighter 8-inch 2 MP 25× Laser Network Speed Dome',
     name: 'Hikvision DS-2DF8225IX-AELW(T5) 8-inch 25× Laser Speed Dome',
     category: 'ptz-tambang',
     categoryName: 'CCTV PTZ Tambang',
@@ -310,7 +345,10 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: '2 MP (1920 × 1080) Ultra-Long Range Laser',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/DS-2DF8225IX-AELW(T5)/gambar1.webp',
+    images: [
+      'assets/produk/DS-2DF8225IX-AELW(T5)/gambar1.webp'
+    ],
     specs: [
       'Sensor 1/1.8″ Progressive Scan CMOS DarkFighter Resolusi 2 MP Frame Rate Tinggi (1920 × 1080 @ 60 fps)',
       'Laser Illuminator Night Vision Ultra Jarak Jauh hingga 400 Meter dalam Kegelapan Total Pit Tambang',
@@ -365,6 +403,8 @@ const cctvProducts = [
   // ==========================================
   {
     id: 'ds-2td2138-7-qy',
+    model: 'DS-2TD2138-7/QY',
+    productName: 'Anti-Corrosion Thermographic Thermal Network Bullet Camera',
     name: 'Hikvision DS-2TD2138-7/QY Anti-Corrosion Thermal Bullet',
     category: 'thermal',
     categoryName: 'CCTV Thermal',
@@ -372,7 +412,10 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: 'Thermal 384 × 288 (VOx Sensor)',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1508873535684-277a3cbcc4e8?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/DS-2TD2138-7QY/gambar1.webp',
+    images: [
+      'assets/produk/DS-2TD2138-7QY/gambar1.webp'
+    ],
     specs: [
       'Sensor Termal Uncooled Focal Plane Arrays (VOx) Resolusi 384 × 288 Piksel (Pixel Pitch 12 μm)',
       'Sensitivitas Termal Unggul NETD < 35 mK Mampu Menembus Kabut Asap Tebal, Hujan Lebat, & Debu Pekat',
@@ -416,6 +459,8 @@ const cctvProducts = [
   },
   {
     id: 'ds-2td2667t-15-p',
+    model: 'DS-2TD2667T-15/P',
+    productName: 'Thermographic Thermal & Optical Bi-Spectrum Network Bullet Camera',
     name: 'Hikvision DS-2TD2667T-15/P Thermographic Thermal & Optical Bullet',
     category: 'thermal',
     categoryName: 'CCTV Thermal',
@@ -423,7 +468,10 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: 'Thermal 640 × 512 + Optical 4 MP',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/DS-2TD2667T-15P/gambar1.webp',
+    images: [
+      'assets/produk/DS-2TD2667T-15P/gambar1.webp'
+    ],
     specs: [
       'Dual-Spectrum Bi-Channel: Sensor Termal Resolusi Tinggi 640 × 512 + Sensor Kamera Optik 4 MP (2688 × 1520)',
       'Pengukuran Suhu Termografi Presisi Tinggi Rentang -20 °C hingga 550 °C dengan Akurasi ±2 °C atau ±2%',
@@ -468,6 +516,8 @@ const cctvProducts = [
   },
   {
     id: 'ds-2td4167t-25-w',
+    model: 'DS-2TD4167T-25/W',
+    productName: 'Thermographic Thermal & Optical Bi-Spectrum Network Speed Dome',
     name: 'Hikvision DS-2TD4167T-25/W Thermographic Thermal & Optical Dome',
     category: 'thermal',
     categoryName: 'CCTV Thermal',
@@ -475,7 +525,10 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: 'Thermal 640 × 512 + Optical 4 MP PTZ',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/DS-2TD4167T-25W/gambar1.webp',
+    images: [
+      'assets/produk/DS-2TD4167T-25W/gambar1.webp'
+    ],
     specs: [
       'Kombinasi Sensor Termal 640 × 512 Lensa 25 mm & Kamera Optik PTZ Resolusi 4 MP 40× Optical Zoom',
       'Rotasi Pan 360° Endless & Tilt -20° s/d 90° dengan Kemampuan Smart Thermal Tracking Melacak Titik Api',
@@ -518,6 +571,8 @@ const cctvProducts = [
   // ==========================================
   {
     id: 'ds-2xs6a47g1-ls-c36s80',
+    model: 'DS-2XS6A47G1-LS/C36S80',
+    productName: '4 MP ColorVu Solar-Powered Security Camera Kit',
     name: 'Hikvision DS-2XS6A47G1-LS/C36S80 4 MP ColorVu Solar Camera Kit',
     category: 'solar-powered',
     categoryName: 'CCTV Solar Powered',
@@ -525,7 +580,13 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: '4 MP ColorVu Off-Grid Solar 4G',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/DS-2XS6A47G1-LSC36S80/gambar1.webp',
+    images: [
+      'assets/produk/DS-2XS6A47G1-LSC36S80/gambar1.webp',
+      'assets/produk/DS-2XS6A47G1-LSC36S80/gambar2.webp',
+      'assets/produk/DS-2XS6A47G1-LSC36S80/gambar3.webp',
+      'assets/produk/DS-2XS6A47G1-LSC36S80/gambar4.webp'
+    ],
     specs: [
       'Paket Komplit Mandiri: Panel Surya Monokristalin 36W & Baterai Lithium Ternary 80Wh Terintegrasi Smart BMS',
       'Konektivitas Nirkabel 4G LTE (Slot Micro SIM): Transmisi Data Real-Time Tanpa Tarikan Kabel Listrik & Jaringan',
@@ -568,6 +629,8 @@ const cctvProducts = [
   },
   {
     id: 'ds-2xs6a46g1-izs-c36s80',
+    model: 'DS-2XS6A46G1-IZS/C36S80',
+    productName: '4 MP Motorized Varifocal Solar-Powered Security Camera Kit',
     name: 'Hikvision DS-2XS6A46G1-IZS/C36S80 4 MP Varifocal Solar Kit',
     category: 'solar-powered',
     categoryName: 'CCTV Solar Powered',
@@ -575,7 +638,13 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: '4 MP Motorized Zoom Solar 4G',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/DS-2XS6A46G1-IZSC36S80/gambar1.webp',
+    images: [
+      'assets/produk/DS-2XS6A46G1-IZSC36S80/gambar1.webp',
+      'assets/produk/DS-2XS6A46G1-IZSC36S80/gambar2.webp',
+      'assets/produk/DS-2XS6A46G1-IZSC36S80/gambar3.webp',
+      'assets/produk/DS-2XS6A46G1-IZSC36S80/gambar4.webp'
+    ],
     specs: [
       'Lensa Motorized Varifocal (Pilihan Jarak Jauh 2.8 - 12 mm / 8 - 32 mm) dengan Autofokus Presisi Remote',
       'Teknologi DarkFighter Ultra Low-Light & Smart IR Jangkauan 50 Meter untuk Pengawasan Malam Hari di Pit',
@@ -612,6 +681,8 @@ const cctvProducts = [
   },
   {
     id: 'ds-2de5425iwg-k-4g-solar',
+    model: 'DS-2DE5425IWG-K/4G + Solar System',
+    productName: '4 MP 25× 4G Solar-Ready Outdoor Speed Dome System',
     name: 'Hikvision DS-2DE5425IWG-K/4G Solar-Ready 4 MP 25× Speed Dome',
     category: 'solar-powered',
     categoryName: 'CCTV Solar Powered',
@@ -619,7 +690,10 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: '4 MP (2560 × 1440) Solar PTZ 25×',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/DS-2DE5425IWG-K4G/gambar1.webp',
+    images: [
+      'assets/produk/DS-2DE5425IWG-K4G/gambar1.webp'
+    ],
     specs: [
       'Kombinasi Kamera PTZ Speed Dome 25× Optical Zoom (4.8 - 120 mm) dengan Konfigurasi Sistem Tenaga Surya',
       'Modem Seluler 4G LTE Terintegrasi: Kontrol PTZ 360 Derajat & Live View Full HD Tanpa Infrastruktur Kabel',
@@ -657,6 +731,8 @@ const cctvProducts = [
   // ==========================================
   {
     id: 'ds-2df4420wg-xey',
+    model: 'DS-2DF4420WG-XEY',
+    productName: '4 MP 20× Explosion-Proof Network Speed Dome (ATEX / IECEx)',
     name: 'Hikvision DS-2DF4420WG-XEY 4 MP 20× Explosion-Proof Speed Dome',
     category: 'explosion-proof',
     categoryName: 'CCTV Explosion Proof',
@@ -664,7 +740,10 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: '4 MP 20× ATEX / IECEx Zone 1/21',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/DS-2DF4420WG-XEY(ADC)(E)/gambar1.webp',
+    images: [
+      'assets/produk/DS-2DF4420WG-XEY(ADC)(E)/gambar1.webp'
+    ],
     specs: [
       'Sertifikasi Ledakan Resmi ATEX & IECEx: Gas (Zone 1, Zone 2: Ex db IIC T6 Gb) & Debu (Zone 21, 22: Ex tb IIIC T80°C Db)',
       'Housing Paduan Aluminium Khusus Tahan Ledakan (Explosion-Proof Die-Cast Aluminum) Menahan Percikan Api Internal',
@@ -705,6 +784,8 @@ const cctvProducts = [
   },
   {
     id: 'ds-2dy9236i-cwx-t5-316l',
+    model: 'DS-2DY9236I-CWX(T5/316L)',
+    productName: '2 MP 36× Explosion-Proof Positioning System Stainless Steel 316L',
     name: 'Hikvision DS-2DY9236I-CWX(T5/316L) 2 MP 36× Explosion-Proof System',
     category: 'explosion-proof',
     categoryName: 'CCTV Explosion Proof',
@@ -712,7 +793,10 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: '2 MP 36× Zoom Stainless 316L',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/DS-2DY9236I-CWX(T5316L)/gambar1.webp',
+    images: [
+      'assets/produk/DS-2DY9236I-CWX(T5316L)/gambar1.webp'
+    ],
     specs: [
       'Konstruksi Baja Tahan Karat Murni Stainless Steel 316L Tahan Korosi Asam Kimia, Gas Metana, & Air Garam',
       'Sertifikasi Anti-Ledakan Tertinggi ATEX & IECEx Certified untuk Lingkungan Ekstrem Zone 1, 2 serta 21, 22',
@@ -751,6 +835,8 @@ const cctvProducts = [
   },
   {
     id: 'ds-2xe6845g0-izhs-b',
+    model: 'DS-2XE6845G0-IZHS(B)',
+    productName: '4 MP Explosion-Proof Varifocal Bullet Network Camera',
     name: 'Hikvision DS-2XE6845G0-IZHS(B) 4 MP Explosion-Proof Bullet Camera',
     category: 'explosion-proof',
     categoryName: 'CCTV Explosion Proof',
@@ -758,7 +844,10 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: '4 MP Stainless 316L Ex-Proof',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/DS-2XE6845G0-IZHS(B)/gambar1.webp',
+    images: [
+      'assets/produk/DS-2XE6845G0-IZHS(B)/gambar1.webp'
+    ],
     specs: [
       'Material Casing Baja Tahan Karat Stainless Steel 316L Bersertifikasi Resmi ATEX & IECEx Zone 1/21 Anti-Ledakan',
       'Built-in Junction Box Terintegrasi pada Bodi Belakang Memudahkan Pemasangan Pipa Conduit Besi Anti-Ledakan',
@@ -799,6 +888,8 @@ const cctvProducts = [
   // ==========================================
   {
     id: 'ids-2cd7a26g0-p-izhs-y',
+    model: 'iDS-2CD7A26G0/P-IZHS(Y)',
+    productName: 'DeepinView 2 MP ANPR Varifocal Bullet Network Camera',
     name: 'Hikvision DeepinView iDS-2CD7A26G0/P-IZHS(Y) 2 MP ANPR Bullet',
     category: 'anpr-lpr',
     categoryName: 'CCTV ANPR / LPR',
@@ -806,7 +897,13 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: '2 MP (1920 × 1080) ANPR AI 60 fps',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/iDS-2CD7A26G0P-IZHS(Y)/gambar1.webp',
+    images: [
+      'assets/produk/iDS-2CD7A26G0P-IZHS(Y)/gambar1.webp',
+      'assets/produk/iDS-2CD7A26G0P-IZHS(Y)/gambar2.webp',
+      'assets/produk/iDS-2CD7A26G0P-IZHS(Y)/gambar3.webp',
+      'assets/produk/iDS-2CD7A26G0P-IZHS(Y)/gambar4.webp'
+    ],
     specs: [
       'Algoritma DeepinView ANPR Khusus Pengenalan Pelat Nomor Kendaraan Otomatis dengan Akurasi Tangkapan >98%',
       'Mampu Membaca Pelat Nomor Truk Tambang pada Kecepatan Laju Kendaraan hingga 120 km/jam Siang dan Malam Hari',
@@ -850,6 +947,8 @@ const cctvProducts = [
   },
   {
     id: 'ids-2cd7a46g0-p-izhs-y',
+    model: 'iDS-2CD7A46G0/P-IZHS(Y)',
+    productName: 'DeepinView 4 MP ANPR Varifocal Bullet Network Camera',
     name: 'Hikvision DeepinView iDS-2CD7A46G0/P-IZHS(Y) 4 MP ANPR Bullet',
     category: 'anpr-lpr',
     categoryName: 'CCTV ANPR / LPR',
@@ -857,7 +956,13 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: '4 MP (2688 × 1520) ANPR High-Res',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/iDS-2CD7A46G0P-IZHS(Y)/gambar1.webp',
+    images: [
+      'assets/produk/iDS-2CD7A46G0P-IZHS(Y)/gambar1.webp',
+      'assets/produk/iDS-2CD7A46G0P-IZHS(Y)/gambar2.webp',
+      'assets/produk/iDS-2CD7A46G0P-IZHS(Y)/gambar3.webp',
+      'assets/produk/iDS-2CD7A46G0P-IZHS(Y)/gambar4.webp'
+    ],
     specs: [
       'Resolusi Tinggi 4 MP (2688 × 1520 @ 30/60 fps) Memberikan Detail Sangat Tajam Pelat Nomor & Karakter Huruf Kecil',
       'Analisis Metadata Kendaraan Lengkap: Mengenali Nomor Pelat, Jenis Kendaraan, Warna Bodi, dan Arah Lajur Perjalanan',
@@ -898,6 +1003,8 @@ const cctvProducts = [
   },
   {
     id: 'ids-2cd7a47g0-p-xzhs-y',
+    model: 'iDS-2CD7A47G0/P-XZHS(Y)',
+    productName: 'DeepinView 4 MP ColorVu ANPR Bullet Network Camera',
     name: 'Hikvision DeepinView iDS-2CD7A47G0/P-XZHS(Y) 4 MP ColorVu ANPR',
     category: 'anpr-lpr',
     categoryName: 'CCTV ANPR / LPR',
@@ -905,7 +1012,11 @@ const cctvProducts = [
     brandName: 'Hikvision Industrial',
     res: '4 MP DarkFighterS ColorVu ANPR',
     price: 'Hubungi Penawaran',
-    image: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/produk/iDS-2CD7A47G0P-XZHS(Y)/gambar1.webp',
+    images: [
+      'assets/produk/iDS-2CD7A47G0P-XZHS(Y)/gambar1.webp',
+      'assets/produk/iDS-2CD7A47G0P-XZHS(Y)/gambar2.webp'
+    ],
     specs: [
       'Teknologi Unggulan ColorVu ANPR: Menghasilkan Tangkapan Pelat Nomor & Warna Asli Kendaraan 24 Jam Penuh Tanpa Monokrom',
       'Fitur Self-Cleaning Kaca Depan dengan Pelapis Hidrofobik Mencegah Penempelan Debu Batubara & Cipratan Air Hujan',
@@ -956,6 +1067,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const catSelect = document.getElementById('categoryFilter');
   const brandSelect = document.getElementById('brandFilter');
   const searchInput = document.getElementById('productSearchInput');
+  const searchSubmitBtn = document.getElementById('searchSubmitBtn');
+  const clearSearchBtn = document.getElementById('clearSearchBtn');
+  const resetBtn = document.getElementById('resetFilterBtn');
+  const resultCountEl = document.getElementById('productResultCount');
   const catFilterBtns = document.querySelectorAll('.cat-pill');
   const brandFilterBtns = document.querySelectorAll('.brand-pill');
 
@@ -967,7 +1082,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let activeBrand = urlParams.get('brand') || 'all';
   let searchTerm = '';
 
-  // Synchronize dropdowns
+  // Synchronize dropdowns if present
   if (catSelect) {
     if (Array.from(catSelect.options).some(o => o.value === activeCategory)) {
       catSelect.value = activeCategory;
@@ -986,19 +1101,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Synchronize filter buttons if present
-  catFilterBtns.forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-filter') === activeCategory);
-  });
-  brandFilterBtns.forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-brand') === activeBrand);
-  });
+  function updateStatus(filteredCount) {
+    if (resultCountEl) {
+      if (activeCategory === 'all' && !searchTerm) {
+        resultCountEl.innerHTML = `Menampilkan <strong>${filteredCount} model</strong> CCTV tambang resmi Hikvision`;
+      } else if (activeCategory !== 'all' && !searchTerm) {
+        const selectedText = catSelect && catSelect.selectedIndex >= 0 ? catSelect.options[catSelect.selectedIndex].text : activeCategory;
+        resultCountEl.innerHTML = `Menampilkan <strong>${filteredCount} model</strong> untuk kategori <strong>${selectedText}</strong>`;
+      } else if (searchTerm && activeCategory === 'all') {
+        resultCountEl.innerHTML = `Ditemukan <strong>${filteredCount} model</strong> untuk kata kunci "<strong>${searchTerm}</strong>"`;
+      } else if (searchTerm && activeCategory !== 'all') {
+        const selectedText = catSelect && catSelect.selectedIndex >= 0 ? catSelect.options[catSelect.selectedIndex].text : activeCategory;
+        resultCountEl.innerHTML = `Ditemukan <strong>${filteredCount} model</strong> dalam kategori <strong>${selectedText}</strong> dengan kata kunci "<strong>${searchTerm}</strong>"`;
+      }
+    }
+
+    if (clearSearchBtn) {
+      if (searchTerm) {
+        clearSearchBtn.style.display = 'flex';
+      } else {
+        clearSearchBtn.style.display = 'none';
+      }
+    }
+  }
 
   function renderProducts() {
     const filtered = cctvProducts.filter(item => {
       const matchCat = activeCategory === 'all' || item.category === activeCategory;
       const matchBrand = activeBrand === 'all' || item.brand === activeBrand;
       const matchSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                          (item.model && item.model.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                          (item.productName && item.productName.toLowerCase().includes(searchTerm.toLowerCase())) ||
                           item.desc.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           item.res.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           item.brandName.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -1007,15 +1140,20 @@ document.addEventListener('DOMContentLoaded', () => {
       return matchCat && matchBrand && matchSearch;
     });
 
+    updateStatus(filtered.length);
+
     if (filtered.length === 0) {
       productContainer.innerHTML = `
-        <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem;">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 1rem; color: var(--mute);">
+        <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; background: #FFFFFF; border: 1.5px dashed #CBD5E1; border-radius: 14px;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 1rem; color: #94A3B8;">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
-          <h3 style="font-family: var(--font-heading); margin-bottom: 0.5rem; color: var(--ink);">Tidak Ada Perangkat yang Sesuai</h3>
-          <p style="color: var(--mute);">Coba ubah pilihan filter kategori atau kata kunci pencarian perangkat tambang Anda.</p>
+          <h3 style="font-family: var(--font-heading); margin-bottom: 0.5rem; color: #071A36;">Tidak Ada Perangkat yang Sesuai</h3>
+          <p style="color: #64748B; margin-bottom: 1.5rem;">Coba ubah pilihan kategori atau kata kunci pencarian perangkat tambang Anda.</p>
+          <button type="button" class="btn btn-navy btn-sm" onclick="document.getElementById('resetFilterBtn') && document.getElementById('resetFilterBtn').click()">
+            Tampilkan Semua Perangkat
+          </button>
         </div>
       `;
       return;
@@ -1024,11 +1162,11 @@ document.addEventListener('DOMContentLoaded', () => {
     productContainer.innerHTML = filtered.map(item => `
       <div class="product-card" data-id="${item.id}">
         <div class="product-image-box">
-          <img src="${item.image}" alt="${item.name}" loading="lazy" />
+          <img src="${item.image}" alt="${item.model ? item.model + ' - ' : ''}${item.productName || item.name}" loading="lazy" />
         </div>
         <div class="product-body">
-          <span class="product-mining-tag">${item.categoryName}</span>
-          <h3 class="product-title">${item.name}</h3>
+          <h3 class="product-model">${item.model || item.name}</h3>
+          <div class="product-name">${item.productName || item.name}</div>
           <div class="product-specs-list">
             ${item.specs.slice(0, 3).map(s => `
               <div class="spec-item">
@@ -1051,50 +1189,63 @@ document.addEventListener('DOMContentLoaded', () => {
   if (catSelect) {
     catSelect.addEventListener('change', (e) => {
       activeCategory = e.target.value;
-      catFilterBtns.forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-filter') === activeCategory);
-      });
       renderProducts();
     });
   }
 
-  // Brand Dropdown Listener
+  // Tombol Cari Action
+  if (searchSubmitBtn) {
+    searchSubmitBtn.addEventListener('click', () => {
+      if (searchInput) {
+        searchTerm = searchInput.value.trim();
+      }
+      renderProducts();
+    });
+  }
+
+  // Search Input Listeners (Live input & Enter key)
+  if (searchInput) {
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        searchTerm = searchInput.value.trim();
+        renderProducts();
+      }
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      searchTerm = e.target.value.trim();
+      renderProducts();
+    });
+  }
+
+  // Clear Search Button
+  if (clearSearchBtn) {
+    clearSearchBtn.addEventListener('click', () => {
+      searchTerm = '';
+      if (searchInput) {
+        searchInput.value = '';
+        searchInput.focus();
+      }
+      renderProducts();
+    });
+  }
+
+  // Reset Filter Button
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      activeCategory = 'all';
+      searchTerm = '';
+      if (searchInput) searchInput.value = '';
+      if (catSelect) catSelect.value = 'all';
+      renderProducts();
+    });
+  }
+
+  // Brand Dropdown Listener (if present)
   if (brandSelect) {
     brandSelect.addEventListener('change', (e) => {
       activeBrand = e.target.value;
-      brandFilterBtns.forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-brand') === activeBrand);
-      });
-      renderProducts();
-    });
-  }
-
-  // Category Filter Buttons
-  catFilterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      catFilterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeCategory = btn.getAttribute('data-filter');
-      if (catSelect) catSelect.value = activeCategory;
-      renderProducts();
-    });
-  });
-
-  // Brand Filter Buttons
-  brandFilterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      brandFilterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeBrand = btn.getAttribute('data-brand');
-      if (brandSelect) brandSelect.value = activeBrand;
-      renderProducts();
-    });
-  });
-
-  // Search Input
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      searchTerm = e.target.value.trim();
       renderProducts();
     });
   }

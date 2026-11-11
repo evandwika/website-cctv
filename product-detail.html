@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -54,7 +54,7 @@
   <!-- ================= SPLASH SCREEN (Pre-rendered for seamless page transitions) ================= -->
   <div id="splash" class="splash-screen" aria-hidden="true">
     <div class="splash-box">
-      <img src="assets/logo/logo-cmi-diamond.jpg" alt="PT Cahaya Mustika Internesia" class="splash-logo" width="135" height="135">
+      <img src="assets/logo/logo-cmi-diamond.webp" alt="PT Cahaya Mustika Internesia" class="splash-logo" width="135" height="135">
       <p class="splash-sub">Mining & Industrial Surveillance Solutions</p>
       <div class="splash-bar"></div>
     </div>
@@ -69,25 +69,7 @@
 
       <nav class="menu" id="menu" aria-label="Menu utama">
         <a href="index.html">Beranda</a>
-        
-        <div class="dd active">
-          <button class="dd-btn active" aria-haspopup="true" aria-expanded="false" aria-current="page">
-            Produk
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M1 1l4 4 4-4"></path>
-            </svg>
-          </button>
-          <div class="dd-list">
-            <a href="products.html">Semua Produk</a>
-            <a href="products.html?cat=ip-camera">CCTV IP Camera Outdoor</a>
-            <a href="products.html?cat=ptz-tambang">CCTV PTZ Tambang</a>
-            <a href="products.html?cat=thermal">CCTV Thermal</a>
-            <a href="products.html?cat=solar-powered">CCTV Solar Powered</a>
-            <a href="products.html?cat=explosion-proof">CCTV Explosion Proof</a>
-            <a href="products.html?cat=anpr-lpr">CCTV ANPR / LPR</a>
-          </div>
-        </div>
-
+        <a href="products.html" class="active">Produk</a>
         <a href="portfolio.html">Portofolio</a>
         <a href="articles.html">Artikel</a>
         <a href="contact.html">Kontak Kami</a>
@@ -117,16 +99,47 @@
       <div class="wrap">
         <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 3.5rem; align-items: start;" class="choosing-layout">
           <!-- Image Box -->
-          <div style="background: #0A192F; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); position: relative; box-shadow: var(--sh);">
-            <img id="detailImg" src="https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=800&q=80" alt="Detail Kamera CCTV Tambang" style="width: 100%; height: 420px; object-fit: cover;" />
+          <div class="product-gallery-box" id="productGalleryBox">
+            <div class="gallery-main-view">
+              <img id="detailImg" src="" alt="Detail Kamera CCTV Tambang" />
+
+              <!-- Tombol Navigasi Kiri (Hanya muncul jika gambar > 1) -->
+              <button type="button" class="gallery-nav-btn gallery-nav-prev" id="galleryPrevBtn" aria-label="Foto sebelumnya" style="display: none;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+
+              <!-- Tombol Navigasi Kanan (Hanya muncul jika gambar > 1) -->
+              <button type="button" class="gallery-nav-btn gallery-nav-next" id="galleryNextBtn" aria-label="Foto berikutnya" style="display: none;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+
+              <!-- Indikator Angka Foto (Hanya muncul jika gambar > 1) -->
+              <div class="gallery-counter-badge" id="galleryCounter" style="display: none;">
+                <span id="galleryCurrentNum">1</span> / <span id="galleryTotalNum">1</span>
+              </div>
+            </div>
+
+            <!-- Thumbnail Preview Strip (Hanya muncul jika gambar > 1) -->
+            <div class="gallery-thumbs-row" id="galleryThumbsRow" style="display: none;"></div>
           </div>
 
           <!-- Details Info -->
           <div>
-            <span id="detailCategory" class="product-mining-tag" style="font-size: 0.88rem; margin-bottom: 0.5rem; display: inline-block;">CCTV IP Camera Outdoor • Hikvision Industrial</span>
-            <h1 style="font-size: clamp(1.85rem, 2.8vw, 2.4rem); margin-bottom: 0.8rem;" id="detailTitle">
-              Hikvision DS-2CD2T43G2-2I 4 MP AcuSense Fixed Bullet Camera
+            <div class="detail-header-meta">
+              <span id="detailCategory" class="product-mining-tag">CCTV IP Camera Outdoor</span>
+            </div>
+
+            <h1 class="detail-product-model" id="detailModelCode">
+              DS-2CD2T43G2-2I
             </h1>
+
+            <div class="detail-product-name" id="detailTitle">
+              4 MP AcuSense Fixed Bullet Network Camera
+            </div>
 
             <p style="font-size: 1.02rem; line-height: 1.75; color: #475569; margin-bottom: 2rem;" id="detailDesc">
               Kamera bullet jaringan outdoor beresolusi 4 MP dengan teknologi Hikvision AcuSense. Didukung algoritma deep learning untuk membedakan target manusia dan kendaraan secara presisi dari pemicu alarm palsu di lingkungan pertambangan terbuka.
@@ -192,11 +205,14 @@
           <!-- Related 1: ds-2se7c432iwg-k-4g-14-f0 -->
           <div class="product-card" data-id="ds-2se7c432iwg-k-4g-14-f0">
             <div class="product-image-box">
-              <img src="https://images.unsplash.com/photo-1528310263766-d7e14ecbc600?auto=format&fit=crop&w=800&q=80" alt="Hikvision TandemVu DS-2SE7C432IWG-K/4G/14(F0) Speed Dome" loading="lazy" />
+              <img src="assets/produk/DS-2SE7C432IWG-K4G14(F0)/gambar1.webp" alt="DS-2SE7C432IWG-K/4G/14(F0) - TandemVu 7-inch 4 MP 32× 4G Network Speed Dome" loading="lazy" />
             </div>
             <div class="product-body">
-              <span class="product-mining-tag">CCTV PTZ Tambang</span>
-              <h3 class="product-title">Hikvision TandemVu 7-inch 4 MP 32× 4G Speed Dome</h3>
+              <div class="product-header-meta">
+                <span class="product-mining-tag">CCTV PTZ Tambang</span>
+              </div>
+              <h3 class="product-model">DS-2SE7C432IWG-K/4G/14(F0)</h3>
+              <div class="product-name">TandemVu 7-inch 4 MP 32× 4G Network Speed Dome</div>
               <div class="product-specs-list">
                 <div class="spec-item">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg>
@@ -220,11 +236,14 @@
           <!-- Related 2: ds-2td2667t-15-p -->
           <div class="product-card" data-id="ds-2td2667t-15-p">
             <div class="product-image-box">
-              <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80" alt="Hikvision DS-2TD2667T-15/P Thermographic Thermal Bullet" loading="lazy" />
+              <img src="assets/produk/DS-2TD2667T-15P/gambar1.webp" alt="DS-2TD2667T-15/P - Thermographic Thermal & Optical Bi-Spectrum Network Bullet Camera" loading="lazy" />
             </div>
             <div class="product-body">
-              <span class="product-mining-tag">CCTV Thermal</span>
-              <h3 class="product-title">Hikvision DS-2TD2667T-15/P Thermographic Thermal & Optical Bullet</h3>
+              <div class="product-header-meta">
+                <span class="product-mining-tag">CCTV Thermal</span>
+              </div>
+              <h3 class="product-model">DS-2TD2667T-15/P</h3>
+              <div class="product-name">Thermographic Thermal & Optical Bi-Spectrum Network Bullet Camera</div>
               <div class="product-specs-list">
                 <div class="spec-item">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg>
@@ -248,11 +267,14 @@
           <!-- Related 3: ds-2xs6a47g1-ls-c36s80 -->
           <div class="product-card" data-id="ds-2xs6a47g1-ls-c36s80">
             <div class="product-image-box">
-              <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80" alt="Hikvision DS-2XS6A47G1-LS/C36S80 4 MP ColorVu Solar Power Kit" loading="lazy" />
+              <img src="assets/produk/DS-2XS6A47G1-LSC36S80/gambar1.webp" alt="DS-2XS6A47G1-LS/C36S80 - 4 MP ColorVu Solar-Powered Security Camera Kit" loading="lazy" />
             </div>
             <div class="product-body">
-              <span class="product-mining-tag">CCTV Solar Powered</span>
-              <h3 class="product-title">Hikvision DS-2XS6A47G1-LS/C36S80 4 MP ColorVu Solar Power Kit</h3>
+              <div class="product-header-meta">
+                <span class="product-mining-tag">CCTV Solar Powered</span>
+              </div>
+              <h3 class="product-model">DS-2XS6A47G1-LS/C36S80</h3>
+              <div class="product-name">4 MP ColorVu Solar-Powered Security Camera Kit</div>
               <div class="product-specs-list">
                 <div class="spec-item">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg>
@@ -281,7 +303,7 @@
   <footer class="foot">
     <div class="wrap foot-in">
       <div>
-        <img src="assets/logo/logo-cmi-diamond.jpg" alt="PT Cahaya Mustika Internesia" class="flogo" loading="lazy">
+        <img src="assets/logo/logo-cmi-diamond.webp" alt="PT Cahaya Mustika Internesia" class="flogo" loading="lazy">
         <p>
           Penyedia solusi terintegrasi perangkat surveilans dan kamera CCTV industrial grade khusus area pertambangan batubara, nikel, emas, serta industri berat di seluruh Indonesia.
         </p>
@@ -324,22 +346,114 @@
       if (typeof cctvProducts !== 'undefined') {
         const prod = cctvProducts.find(p => p.id === prodId) || cctvProducts[0];
         if (prod) {
-          document.title = `${prod.name} | Cahaya Mustika`;
+          document.title = `${prod.model ? prod.model + ' - ' : ''}${prod.productName || prod.name} | Cahaya Mustika`;
           const breadcrumb = document.getElementById('breadcrumbProdName');
-          if (breadcrumb) breadcrumb.textContent = prod.name;
+          if (breadcrumb) breadcrumb.textContent = `${prod.model ? prod.model + ' - ' : ''}${prod.productName || prod.name}`;
           
-          document.getElementById('detailTitle').textContent = prod.name;
+          const modelEl = document.getElementById('detailModelCode');
+          if (modelEl) modelEl.textContent = prod.model || prod.id.toUpperCase();
+
+          const titleEl = document.getElementById('detailTitle');
+          if (titleEl) titleEl.textContent = prod.productName || prod.name;
+
           document.getElementById('detailDesc').textContent = prod.desc;
           const catEl = document.getElementById('detailCategory');
-          if (catEl) catEl.textContent = `${prod.categoryName} • ${prod.brandName}`;
+          if (catEl) catEl.textContent = prod.categoryName;
           const badgeEl = document.getElementById('detailBadge');
           if (badgeEl) badgeEl.textContent = prod.badge;
-          document.getElementById('detailImg').src = prod.image;
-          document.getElementById('detailImg').alt = prod.name;
+          // Gallery Slider Logic (Navigasi Kanan & Kiri jika gambar > 1)
+          const prodImages = (prod.images && prod.images.length > 0) ? prod.images : [prod.image];
+          let currentImgIndex = 0;
+
+          const detailImg = document.getElementById('detailImg');
+          const galleryPrevBtn = document.getElementById('galleryPrevBtn');
+          const galleryNextBtn = document.getElementById('galleryNextBtn');
+          const galleryCounter = document.getElementById('galleryCounter');
+          const galleryCurrentNum = document.getElementById('galleryCurrentNum');
+          const galleryTotalNum = document.getElementById('galleryTotalNum');
+          const galleryThumbsRow = document.getElementById('galleryThumbsRow');
+
+          const updateGalleryDisplay = (index) => {
+            currentImgIndex = index;
+            if (detailImg) {
+              detailImg.style.opacity = '0.3';
+              detailImg.src = prodImages[currentImgIndex];
+              detailImg.alt = `${prod.model ? prod.model + ' - ' : ''}${prod.productName || prod.name} (Foto ${currentImgIndex + 1})`;
+              setTimeout(() => {
+                detailImg.style.opacity = '1';
+              }, 80);
+            }
+            if (galleryCurrentNum) galleryCurrentNum.textContent = currentImgIndex + 1;
+
+            if (galleryThumbsRow) {
+              const thumbs = galleryThumbsRow.querySelectorAll('.gallery-thumb-item');
+              thumbs.forEach((thumb, idx) => {
+                thumb.classList.toggle('active', idx === currentImgIndex);
+              });
+            }
+          };
+
+          if (prodImages.length > 1) {
+            // Jika gambar lebih dari 1: tampilkan tombol navigasi kiri dan kanan
+            if (galleryPrevBtn) galleryPrevBtn.style.display = 'flex';
+            if (galleryNextBtn) galleryNextBtn.style.display = 'flex';
+            if (galleryCounter) galleryCounter.style.display = 'inline-flex';
+            if (galleryTotalNum) galleryTotalNum.textContent = prodImages.length;
+
+            if (galleryThumbsRow) {
+              galleryThumbsRow.style.display = 'flex';
+              galleryThumbsRow.innerHTML = prodImages.map((imgSrc, idx) => `
+                <button type="button" class="gallery-thumb-item ${idx === 0 ? 'active' : ''}" data-idx="${idx}" aria-label="Lihat foto ${idx + 1}">
+                  <img src="${imgSrc}" alt="Thumbnail ${idx + 1}" loading="lazy" />
+                </button>
+              `).join('');
+
+              galleryThumbsRow.querySelectorAll('.gallery-thumb-item').forEach(btn => {
+                btn.addEventListener('click', () => {
+                  const idx = parseInt(btn.getAttribute('data-idx'), 10);
+                  updateGalleryDisplay(idx);
+                });
+              });
+            }
+
+            if (galleryPrevBtn) {
+              galleryPrevBtn.onclick = () => {
+                const newIdx = (currentImgIndex - 1 + prodImages.length) % prodImages.length;
+                updateGalleryDisplay(newIdx);
+              };
+            }
+
+            if (galleryNextBtn) {
+              galleryNextBtn.onclick = () => {
+                const newIdx = (currentImgIndex + 1) % prodImages.length;
+                updateGalleryDisplay(newIdx);
+              };
+            }
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+              if (e.key === 'ArrowLeft') {
+                const newIdx = (currentImgIndex - 1 + prodImages.length) % prodImages.length;
+                updateGalleryDisplay(newIdx);
+              } else if (e.key === 'ArrowRight') {
+                const newIdx = (currentImgIndex + 1) % prodImages.length;
+                updateGalleryDisplay(newIdx);
+              }
+            });
+          } else {
+            // Jika gambar hanya 1: sembunyikan tombol navigasi, counter, dan thumbnail
+            if (galleryPrevBtn) galleryPrevBtn.style.display = 'none';
+            if (galleryNextBtn) galleryNextBtn.style.display = 'none';
+            if (galleryCounter) galleryCounter.style.display = 'none';
+            if (galleryThumbsRow) galleryThumbsRow.style.display = 'none';
+          }
+
+          // Initial view
+          updateGalleryDisplay(0);
 
           const waBtn = document.getElementById('detailWaBtn');
           if (waBtn) {
-            const waText = encodeURIComponent(`Halo PT Cahaya Mustika Internesia, saya ingin tanya produk CCTV Tambang: ${prod.name}`);
+            const waText = encodeURIComponent(`Halo PT Cahaya Mustika Internesia, saya ingin tanya produk CCTV Tambang: ${prod.model || ''} - ${prod.productName || prod.name}`);
             waBtn.href = `https://wa.me/628113301819?text=${waText}`;
           }
 
@@ -536,11 +650,14 @@
             relatedContainer.innerHTML = otherProducts.map(item => `
               <div class="product-card" data-id="${item.id}">
                 <div class="product-image-box">
-                  <img src="${item.image}" alt="${item.name}" loading="lazy" />
+                  <img src="${item.image}" alt="${item.model ? item.model + ' - ' : ''}${item.productName || item.name}" loading="lazy" />
                 </div>
                 <div class="product-body">
-                  <span class="product-mining-tag">${item.categoryName}</span>
-                  <h3 class="product-title">${item.name}</h3>
+                  <div class="product-header-meta">
+                    <span class="product-mining-tag">${item.categoryName}</span>
+                  </div>
+                  <h3 class="product-model">${item.model || item.name}</h3>
+                  <div class="product-name">${item.productName || item.name}</div>
                   <div class="product-specs-list">
                     ${item.specs.slice(0, 3).map(s => `
                       <div class="spec-item">

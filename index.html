@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -16,7 +16,7 @@
   <!-- ================= SPLASH SCREEN (Pre-rendered for seamless page transitions) ================= -->
   <div id="splash" class="splash-screen" aria-hidden="true">
     <div class="splash-box">
-      <img src="assets/logo/logo-cmi-diamond.jpg" alt="PT Cahaya Mustika Internesia" class="splash-logo" width="135" height="135">
+      <img src="assets/logo/logo-cmi-diamond.webp" alt="PT Cahaya Mustika Internesia" class="splash-logo" width="135" height="135">
       <p class="splash-sub">Mining & Industrial Surveillance Solutions</p>
       <div class="splash-bar"></div>
     </div>
@@ -31,25 +31,7 @@
 
       <nav class="menu" id="menu" aria-label="Menu utama">
         <a href="index.html" class="active" aria-current="page">Beranda</a>
-        
-        <div class="dd">
-          <button class="dd-btn" aria-haspopup="true" aria-expanded="false">
-            Produk
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M1 1l4 4 4-4"></path>
-            </svg>
-          </button>
-          <div class="dd-list">
-            <a href="products.html">Semua Produk</a>
-            <a href="products.html?cat=ip-camera">CCTV IP Camera Outdoor</a>
-            <a href="products.html?cat=ptz-tambang">CCTV PTZ Tambang</a>
-            <a href="products.html?cat=thermal">CCTV Thermal</a>
-            <a href="products.html?cat=solar-powered">CCTV Solar Powered</a>
-            <a href="products.html?cat=explosion-proof">CCTV Explosion Proof</a>
-            <a href="products.html?cat=anpr-lpr">CCTV ANPR / LPR</a>
-          </div>
-        </div>
-
+        <a href="products.html">Produk</a>
         <a href="portfolio.html">Portofolio</a>
         <a href="articles.html">Artikel</a>
         <a href="contact.html">Kontak Kami</a>
@@ -69,27 +51,33 @@
   <main>
     <!-- ================= HERO MINING SECTION ================= -->
     <section class="hero-mining" id="beranda">
-      <div class="wrap hero-mining-in">
-        <span class="eyebrow eyebrow-hero">
-          PT Cahaya Mustika Internesia
-        </span>
+      <div class="hero-bg-overlay"></div>
+      <div class="wrap">
+        <!-- Hero Content (Left Aligned) -->
+        <div class="hero-content" style="max-width: 860px; text-align: left;">
+          <div class="hero-pill-badge">
+            <span class="pulsing-status-dot"></span>
+            <span class="hero-pill-text">Solusi CCTV Tambang & Industri Ekstrem • Authorized Partner</span>
+          </div>
 
-        <h1>
-          Jual CCTV untuk Pengawasan Area Pertambangan
-        </h1>
+          <h1 class="hero-main-title">
+            Sistem Kamera CCTV Handal untuk <span class="gold-gradient">Area Pertambangan</span> & Industri Berat
+          </h1>
 
-        <p class="hero-desc">
-          Tingkatkan pengawasan operasional tambang dengan sistem CCTV yang mendukung pemantauan area kerja, aktivitas alat berat, jalur hauling, hingga fasilitas pertambangan. Pilih perangkat sesuai kondisi lingkungan dan kebutuhan operasional.
-        </p>
+          <p class="hero-desc">
+            Solusi pengawasan visual tanpa henti untuk area open-pit, jalan hauling, stockpile batubara, hingga fasilitas pengolahan konsesi tambang. Dilengkapi sertifikasi ATEX Explosion-Proof, solar 4G off-grid mandiri, sensor termografi pencegah kebakaran, dan kecerdasan buatan AI Hikvision.
+          </p>
 
-        <div class="btns">
-          <a href="contact.html" class="btn btn-orange">
-            Konsultasikan Sekarang
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-          <a href="products.html" class="btn btn-trans-white">
-            Lihat Produk CCTV
-          </a>
+          <div class="hero-actions-wrap">
+            <a href="https://wa.me/628113301819?text=Halo%20PT%20Cahaya%20Mustika%20Internesia,%20saya%20ingin%20konsultasi%20pengadaan%20CCTV%20tambang" target="_blank" rel="noopener noreferrer" class="btn btn-orange btn-lg hero-btn-cta">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.587 1.961.954 2.796.954 3.179 0 5.767-2.587 5.767-5.766.001-3.187-2.575-5.77-5.767-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.053-1.637-.291-1.229-.422-2.193-1.442-2.39-1.666-.196-.223-.974-1.294-.974-2.469 0-1.175.617-1.752.836-1.99.219-.239.479-.299.638-.299.16 0 .319.002.459.009.148.007.348-.056.544.415.204.489.697 1.704.757 1.826.06.122.1.266.02.425-.08.159-.12.259-.239.399-.12.14-.251.312-.359.419-.12.119-.244.249-.105.489.139.239.619 1.021 1.328 1.653.913.813 1.683 1.066 1.922 1.185.239.12.379.1.518-.06.14-.16.598-.698.757-.938.16-.239.319-.2.538-.12.22.08 1.396.658 1.636.778.239.12.399.18.458.279.06.101.06.579-.084.984z"/></svg>
+              Konsultasi Pengadaan Site
+            </a>
+            <a href="products.html" class="btn btn-trans-white btn-lg hero-btn-explore">
+              Lihat 18 Model CCTV
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -108,11 +96,14 @@
           <!-- Product 1: CCTV IP Camera Outdoor -->
           <div class="product-card">
             <div class="product-image-box">
-              <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=800&q=80" alt="Hikvision DS-2CD2T47G2-L 4 MP ColorVu Fixed Bullet Camera" loading="lazy">
+              <img src="assets/produk/DS-2CD2T47G2-L/gambar1.webp" alt="DS-2CD2T47G2-L - 4 MP ColorVu Fixed Bullet Network Camera" loading="lazy">
             </div>
             <div class="product-body">
-              <span class="product-mining-tag">CCTV IP Camera Outdoor</span>
-              <h3 class="product-title">Hikvision DS-2CD2T47G2-L 4 MP ColorVu Fixed Bullet Camera</h3>
+              <div class="product-header-meta">
+                <span class="product-mining-tag">CCTV IP Camera Outdoor</span>
+              </div>
+              <h3 class="product-model">DS-2CD2T47G2-L</h3>
+              <div class="product-name">4 MP ColorVu Fixed Bullet Network Camera</div>
               <ul class="product-specs-list">
                 <li class="spec-item">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -136,11 +127,14 @@
           <!-- Product 2: CCTV PTZ Tambang -->
           <div class="product-card">
             <div class="product-image-box">
-              <img src="https://images.unsplash.com/photo-1528310263766-d7e14ecbc600?auto=format&fit=crop&w=800&q=80" alt="Hikvision TandemVu DS-2SE7C432IWG-K/4G/14(F0) Speed Dome" loading="lazy">
+              <img src="assets/produk/DS-2SE7C432IWG-K4G14(F0)/gambar1.webp" alt="DS-2SE7C432IWG-K/4G/14(F0) - TandemVu 7-inch 4 MP 32× 4G Network Speed Dome" loading="lazy">
             </div>
             <div class="product-body">
-              <span class="product-mining-tag">CCTV PTZ Tambang</span>
-              <h3 class="product-title">Hikvision TandemVu 7-inch 4 MP 32× 4G Network Speed Dome</h3>
+              <div class="product-header-meta">
+                <span class="product-mining-tag">CCTV PTZ Tambang</span>
+              </div>
+              <h3 class="product-model">DS-2SE7C432IWG-K/4G/14(F0)</h3>
+              <div class="product-name">TandemVu 7-inch 4 MP 32× 4G Network Speed Dome</div>
               <ul class="product-specs-list">
                 <li class="spec-item">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -164,11 +158,14 @@
           <!-- Product 3: CCTV Thermal -->
           <div class="product-card">
             <div class="product-image-box">
-              <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80" alt="Hikvision DS-2TD2667T-15/P Thermographic Thermal Bullet" loading="lazy">
+              <img src="assets/produk/DS-2TD2667T-15P/gambar1.webp" alt="DS-2TD2667T-15/P - Thermographic Thermal & Optical Bi-Spectrum Network Bullet Camera" loading="lazy">
             </div>
             <div class="product-body">
-              <span class="product-mining-tag">CCTV Thermal</span>
-              <h3 class="product-title">Hikvision DS-2TD2667T-15/P Thermographic Thermal & Optical Bullet</h3>
+              <div class="product-header-meta">
+                <span class="product-mining-tag">CCTV Thermal</span>
+              </div>
+              <h3 class="product-model">DS-2TD2667T-15/P</h3>
+              <div class="product-name">Thermographic Thermal & Optical Bi-Spectrum Network Bullet Camera</div>
               <ul class="product-specs-list">
                 <li class="spec-item">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -192,11 +189,14 @@
           <!-- Product 4: CCTV Solar Powered -->
           <div class="product-card">
             <div class="product-image-box">
-              <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80" alt="Hikvision DS-2XS6A47G1-LS/C36S80 4 MP ColorVu Solar Power Kit" loading="lazy">
+              <img src="assets/produk/DS-2XS6A47G1-LSC36S80/gambar1.webp" alt="DS-2XS6A47G1-LS/C36S80 - 4 MP ColorVu Solar-Powered Security Camera Kit" loading="lazy">
             </div>
             <div class="product-body">
-              <span class="product-mining-tag">CCTV Solar Powered</span>
-              <h3 class="product-title">Hikvision DS-2XS6A47G1-LS/C36S80 4 MP ColorVu Solar Power Kit</h3>
+              <div class="product-header-meta">
+                <span class="product-mining-tag">CCTV Solar Powered</span>
+              </div>
+              <h3 class="product-model">DS-2XS6A47G1-LS/C36S80</h3>
+              <div class="product-name">4 MP ColorVu Solar-Powered Security Camera Kit</div>
               <ul class="product-specs-list">
                 <li class="spec-item">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -220,11 +220,14 @@
           <!-- Product 5: CCTV Explosion Proof -->
           <div class="product-card">
             <div class="product-image-box">
-              <img src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80" alt="Hikvision DS-2DY9236I-CWX(T5/316L) Explosion-Proof System" loading="lazy">
+              <img src="assets/produk/DS-2DY9236I-CWX(T5316L)/gambar1.webp" alt="DS-2DY9236I-CWX(T5/316L) - 2 MP 36× Explosion-Proof Positioning System Stainless Steel 316L" loading="lazy">
             </div>
             <div class="product-body">
-              <span class="product-mining-tag">CCTV Explosion Proof</span>
-              <h3 class="product-title">Hikvision DS-2DY9236I-CWX(T5/316L) 2 MP 36× Explosion-Proof System</h3>
+              <div class="product-header-meta">
+                <span class="product-mining-tag">CCTV Explosion Proof</span>
+              </div>
+              <h3 class="product-model">DS-2DY9236I-CWX(T5/316L)</h3>
+              <div class="product-name">2 MP 36× Explosion-Proof Positioning System Stainless Steel 316L</div>
               <ul class="product-specs-list">
                 <li class="spec-item">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -248,11 +251,14 @@
           <!-- Product 6: CCTV ANPR / LPR -->
           <div class="product-card">
             <div class="product-image-box">
-              <img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=800&q=80" alt="Hikvision DeepinView iDS-2CD7A46G0/P-IZHS(Y) 4 MP ANPR Bullet" loading="lazy">
+              <img src="assets/produk/iDS-2CD7A46G0P-IZHS(Y)/gambar1.webp" alt="iDS-2CD7A46G0/P-IZHS(Y) - DeepinView 4 MP ANPR Varifocal Bullet Network Camera" loading="lazy">
             </div>
             <div class="product-body">
-              <span class="product-mining-tag">CCTV ANPR / LPR</span>
-              <h3 class="product-title">Hikvision DeepinView iDS-2CD7A46G0/P-IZHS(Y) 4 MP ANPR Bullet</h3>
+              <div class="product-header-meta">
+                <span class="product-mining-tag">CCTV ANPR / LPR</span>
+              </div>
+              <h3 class="product-model">iDS-2CD7A46G0/P-IZHS(Y)</h3>
+              <div class="product-name">DeepinView 4 MP ANPR Varifocal Bullet Network Camera</div>
               <ul class="product-specs-list">
                 <li class="spec-item">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -306,176 +312,80 @@
             <!-- Slider Track Memanjang ke Samping -->
             <div class="port-slider-track" id="portSliderTrack">
             <!-- Project 1 -->
-            <div class="port-card" tabindex="0" role="button" aria-label="Lihat dokumentasi Solusi Pengawasan Area Tambang Batubara">
-              <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=800&q=80" alt="Solusi Pengawasan Area Tambang Batubara" class="port-image" loading="lazy">
-              <div class="port-overlay">
-                <div class="port-overlay-frame"></div>
-                <div class="port-overlay-content">
-                  <span class="port-cat">
-                    <span class="port-cat-dot"></span>
-                    Pit Tambang Terbuka
-                  </span>
-                  <h3 class="port-title">Solusi Pengawasan Area Tambang Batubara</h3>
-                  <p class="port-desc">
-                    Pemasangan 8 unit Solar Powered 4G Mobile CCTV Tower di area pit aktif penambangan terbuka serta 16 kamera Long-Range Laser PTZ untuk monitoring kestabilan dinding lereng tambang (slope failure).
-                  </p>
-                  <div class="port-action">
-                    <span class="port-action-btn">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                      <span>Perbesar Foto</span>
-                    </span>
-                  </div>
-                </div>
+            <div class="port-card" tabindex="0" role="button" aria-label="Lihat dokumentasi Sistem CCTV Solar 4G TandemVu PTZ Pit Tambang Batubara" data-category="Pit Tambang Terbuka">
+              <div class="port-image-box">
+                <img src="assets/portfolio/cctv-pit-tandemvu-solar.webp" data-full-img="assets/portfolio/cctv-pit-tandemvu-solar.webp" alt="Sistem CCTV Solar 4G TandemVu PTZ Pit Tambang Batubara" class="port-image port-img-solar" loading="lazy">
+              </div>
+              <div class="port-body">
+                <h3 class="port-title">Sistem CCTV Solar 4G TandemVu PTZ Pit Tambang Batubara</h3>
+                <p class="port-desc">
+                  Pemasangan sistem CCTV mandiri bertenaga surya (Solar 4G Off-Grid) dengan kamera Hikvision TandemVu Speed Dome PTZ pada menara tiang area pit aktif tambang terbuka. Menggabungkan lensa panoramic ColorVu dan lensa PTZ optical zoom untuk memantau kestabilan dinding lereng pit (slope monitoring) serta pergerakan armada alat berat secara real-time 24 jam tanpa kabel listrik.
+                </p>
               </div>
             </div>
 
-            <!-- Project 2 -->
-            <div class="port-card" tabindex="0" role="button" aria-label="Lihat dokumentasi Sistem CCTV untuk Kawasan Industri Smelter Nikel">
-              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Sistem CCTV untuk Kawasan Industri Smelter Nikel" class="port-image" loading="lazy">
-              <div class="port-overlay">
-                <div class="port-overlay-frame"></div>
-                <div class="port-overlay-content">
-                  <span class="port-cat">
-                    <span class="port-cat-dot"></span>
-                    Smelter & Kiln ATEX
-                  </span>
-                  <h3 class="port-title">Sistem CCTV untuk Kawasan Industri Smelter Nikel</h3>
-                  <p class="port-desc">
-                    Instalasi 42 unit kamera ATEX Explosion-Proof Zone 1 Stainless Steel 316L di area kiln peleburan suhu tinggi, tangki gas reduksi, dan gudang penyimpanan bahan peledak (handak).
-                  </p>
-                  <div class="port-action">
-                    <span class="port-action-btn">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                      <span>Perbesar Foto</span>
-                    </span>
-                  </div>
-                </div>
+            <!-- Project 2: Erection & Pemasangan Menara Tiang -->
+            <div class="port-card" tabindex="0" role="button" aria-label="Lihat dokumentasi Instalasi Menara Tiang CCTV Pit Tambang & Braket Tenaga Surya" data-category="Instalasi & Rigging Pit">
+              <div class="port-image-box">
+                <img src="assets/portfolio/cctv-instalasi-tower-pit.webp" data-full-img="assets/portfolio/cctv-instalasi-tower-pit.webp" alt="Instalasi Menara Tiang CCTV Pit Tambang & Braket Tenaga Surya" class="port-image port-img-tower" loading="lazy">
+              </div>
+              <div class="port-body">
+                <h3 class="port-title">Instalasi Menara Tiang CCTV Pit Tambang & Braket Tenaga Surya</h3>
+                <p class="port-desc">
+                  Proses perakitan dan pendirian (erection) menara tiang baja CCTV di titik strategis lereng pit aktif tambang menggunakan sistem tangga kerja teknisi tersertifikasi. Tiang dilengkapi braket modul solar panel surya, grounding penangkal petir terpadu, serta klem baja anti-vibrasi guna meredam getaran keras dari lalu lalang armada dump truck kelas 100 ton.
+                </p>
               </div>
             </div>
 
-            <!-- Project 3 -->
-            <div class="port-card" tabindex="0" role="button" aria-label="Lihat dokumentasi Pengawasan Jalur Hauling dan Jembatan Timbang">
-              <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Pengawasan Jalur Hauling dan Jembatan Timbang" class="port-image" loading="lazy">
-              <div class="port-overlay">
-                <div class="port-overlay-frame"></div>
-                <div class="port-overlay-content">
-                  <span class="port-cat">
-                    <span class="port-cat-dot"></span>
-                    Jalur Hauling & ANPR
-                  </span>
-                  <h3 class="port-title">Pengawasan Jalur Hauling dan Jembatan Timbang</h3>
-                  <p class="port-desc">
-                    Sistem kamera ANPR otomatis pencatat nomor lambung dump truck batubara, sensor kecepatan konvoi, serta pemantauan blindspot persimpangan jalan tambang untuk meminimalisir tabrakan armada.
-                  </p>
-                  <div class="port-action">
-                    <span class="port-action-btn">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                      <span>Perbesar Foto</span>
-                    </span>
-                  </div>
-                </div>
+            <!-- Project 3: Inspeksi Fisik Unit Dual-Lens TandemVu -->
+            <div class="port-card" tabindex="0" role="button" aria-label="Lihat dokumentasi Pre-Commissioning Kamera Dual-Lens Hikvision TandemVu PTZ" data-category="Pre-Commissioning & Unit">
+              <div class="port-image-box">
+                <img src="assets/portfolio/cctv-tandemvu-unit.webp" data-full-img="assets/portfolio/cctv-tandemvu-unit.webp" alt="Pre-Commissioning Kamera Dual-Lens Hikvision TandemVu PTZ" class="port-image port-img-unit" loading="lazy">
+              </div>
+              <div class="port-body">
+                <h3 class="port-title">Pre-Commissioning Kamera Dual-Lens Hikvision TandemVu PTZ</h3>
+                <p class="port-desc">
+                  Pemeriksaan fisik menyeluruh dan uji komisioning pra-instalasi (FAT/SAT) unit kamera surveilans Hikvision TandemVu Speed Dome. Pengujian mencakup kalibrasi sinkronisasi lensa ganda (ColorVu F1.0 dan lensa PTZ jarak jauh), mekanisme wiper pembersih lumpur otomatis, sensor pemanas internal (heater), serta pengujian segel housing IP67 sebelum unit dinaikkan ke puncak menara.
+                </p>
               </div>
             </div>
 
-            <!-- Project 4 -->
-            <div class="port-card" tabindex="0" role="button" aria-label="Lihat dokumentasi Pemantauan Stockpile dan Crusher Batubara">
-              <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80" alt="Pemantauan Stockpile dan Crusher Batubara" class="port-image" loading="lazy">
-              <div class="port-overlay">
-                <div class="port-overlay-frame"></div>
-                <div class="port-overlay-content">
-                  <span class="port-cat">
-                    <span class="port-cat-dot"></span>
-                    Stockpile Batubara
-                  </span>
-                  <h3 class="port-title">Pemantauan Stockpile dan Crusher Batubara</h3>
-                  <p class="port-desc">
-                    Penerapan 12 unit kamera Dual-Spectrum Thermal Radiometrik untuk pemantauan titik panas (hotspot) pencegah swabakar batubara pada tumpukan 250.000 metrik ton serta jalur transfer chute crusher.
-                  </p>
-                  <div class="port-action">
-                    <span class="port-action-btn">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                      <span>Perbesar Foto</span>
-                    </span>
-                  </div>
-                </div>
+            <!-- Project 4: Terminasi Kabel & Baseplate Weatherproof -->
+            <div class="port-card" tabindex="0" role="button" aria-label="Lihat dokumentasi Terminasi Kabel & Baseplate Heavy-Duty Weatherproof CCTV" data-category="Wiring & Proteksi Industrial">
+              <div class="port-image-box">
+                <img src="assets/portfolio/cctv-tandemvu-detail.webp" data-full-img="assets/portfolio/cctv-tandemvu-detail.webp" alt="Terminasi Kabel & Baseplate Heavy-Duty Weatherproof CCTV" class="port-image port-img-detail" loading="lazy">
+              </div>
+              <div class="port-body">
+                <h3 class="port-title">Terminasi Kabel & Baseplate Heavy-Duty Weatherproof CCTV</h3>
+                <p class="port-desc">
+                  Instalasi sistem pengkabelan berstandar industri dan terminasi soket daya serta transmisi data pada baseplate bawah unit Speed Dome. Dilengkapi kawat sling baja pengaman (safety wire tether) anti-jatuh, gland silikon anti-rembesan air hujan badai, dan pelindung korosi kimia untuk menjamin keandalan perangkat dari paparan debu batubara dan gas metana di area pit.
+                </p>
               </div>
             </div>
 
             <!-- Project 5 -->
-            <div class="port-card" tabindex="0" role="button" aria-label="Lihat dokumentasi Sistem Pengawasan Dermaga Jetty dan Loading Tongkang">
-              <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80" alt="Sistem Pengawasan Dermaga Jetty dan Loading Tongkang" class="port-image" loading="lazy">
-              <div class="port-overlay">
-                <div class="port-overlay-frame"></div>
-                <div class="port-overlay-content">
-                  <span class="port-cat">
-                    <span class="port-cat-dot"></span>
-                    Dermaga Jetty & Tongkang
-                  </span>
-                  <h3 class="port-title">Sistem Pengawasan Dermaga Jetty dan Loading Tongkang</h3>
-                  <p class="port-desc">
-                    Kamera tahan uap air asin dan lumpur rating IP68 untuk memantau proses bongkar muat conveyor shiploader ke tongkang (barge) 300 feet serta verifikasi garis muatan draft mark kapal.
-                  </p>
-                  <div class="port-action">
-                    <span class="port-action-btn">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                      <span>Perbesar Foto</span>
-                    </span>
-                  </div>
-                </div>
+            <div class="port-card" tabindex="0" role="button" aria-label="Lihat dokumentasi Sistem Pengawasan Dermaga Jetty dan Loading Tongkang" data-category="Dermaga Jetty & Tongkang">
+              <div class="port-image-box">
+                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80" alt="Sistem Pengawasan Dermaga Jetty dan Loading Tongkang" class="port-image" loading="lazy">
+              </div>
+              <div class="port-body">
+                <h3 class="port-title">Sistem Pengawasan Dermaga Jetty dan Loading Tongkang</h3>
+                <p class="port-desc">
+                  Kamera tahan uap air asin dan lumpur rating IP68 untuk memantau proses bongkar muat conveyor shiploader ke tongkang (barge) 300 feet serta verifikasi garis muatan draft mark kapal.
+                </p>
               </div>
             </div>
 
             <!-- Project 6 -->
-            <div class="port-card" tabindex="0" role="button" aria-label="Lihat dokumentasi Sistem Pemantauan Central Control Room Tambang Emas">
-              <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Sistem Pemantauan Central Control Room Tambang Emas" class="port-image" loading="lazy">
-              <div class="port-overlay">
-                <div class="port-overlay-frame"></div>
-                <div class="port-overlay-content">
-                  <span class="port-cat">
-                    <span class="port-cat-dot"></span>
-                    Central Control Room
-                  </span>
-                  <h3 class="port-title">Sistem Pemantauan Central Control Room Tambang Emas</h3>
-                  <p class="port-desc">
-                    Pembangunan infrastruktur ruang kendali pusat (CCR) terintegrasi dengan 8 layar Video Wall ultra-narrow bezel, server NVR enterprise redundan RAID 6, dan transmisi microwave wireless 500 Mbps.
-                  </p>
-                  <div class="port-action">
-                    <span class="port-action-btn">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                      <span>Perbesar Foto</span>
-                    </span>
-                  </div>
-                </div>
+            <div class="port-card" tabindex="0" role="button" aria-label="Lihat dokumentasi Sistem Pemantauan Central Control Room Tambang Emas" data-category="Central Control Room">
+              <div class="port-image-box">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Sistem Pemantauan Central Control Room Tambang Emas" class="port-image" loading="lazy">
+              </div>
+              <div class="port-body">
+                <h3 class="port-title">Sistem Pemantauan Central Control Room Tambang Emas</h3>
+                <p class="port-desc">
+                  Pembangunan infrastruktur ruang kendali pusat (CCR) terintegrasi dengan 8 layar Video Wall ultra-narrow bezel, server NVR enterprise redundan RAID 6, dan transmisi microwave wireless 500 Mbps.
+                </p>
               </div>
             </div>
           </div>
@@ -494,10 +404,14 @@
           <div class="port-slider-dots" id="portSliderDots" aria-label="Navigasi slide portofolio"></div>
         </div>
 
-        <div class="more" style="display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 3.5rem;">
-          <a href="portfolio.html" class="btn btn-orange">
-            Lihat Semua Dokumentasi Proyek
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        <!-- Tombol Menuju Halaman Portofolio -->
+        <div class="port-more-wrap">
+          <a href="portfolio.html" class="btn btn-orange btn-lg port-cta-btn">
+            Lihat Semua Dokumentasi Portofolio
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
           </a>
         </div>
       </div>
@@ -673,7 +587,7 @@
   <footer class="foot">
     <div class="wrap foot-in">
       <div>
-        <img src="assets/logo/logo-cmi-diamond.jpg" alt="PT Cahaya Mustika Internesia" class="flogo" loading="lazy">
+        <img src="assets/logo/logo-cmi-diamond.webp" alt="PT Cahaya Mustika Internesia" class="flogo" loading="lazy">
         <p>
           Penyedia solusi terintegrasi perangkat surveilans dan kamera CCTV industrial grade khusus area pertambangan batubara, nikel, emas, serta industri berat di seluruh Indonesia.
         </p>
