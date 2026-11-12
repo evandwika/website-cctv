@@ -104,41 +104,16 @@
     <!-- ================= ARTICLES SECTION ================= -->
     <section class="sec">
       <div class="wrap">
-        <!-- Artikel Search Toolbar -->
-        <div class="products-filter-section" style="margin-bottom: 2.5rem;">
-          <div class="product-toolbar-grid" style="grid-template-columns: 1fr auto;">
-            <div class="toolbar-search-group" style="flex: 1 1 auto;">
-              <div class="search-input-inner">
-                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0758D9" stroke-width="2.2">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <input type="text" id="articleSearchInput" placeholder="Cari artikel, panduan teknis, standar ATEX, thermal, solar CCTV..." autocomplete="off" />
-                <button type="button" id="clearArticleSearchBtn" class="clear-search-btn" title="Hapus teks pencarian" style="display: none;">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="18" x2="18" y2="18"></line></svg>
-                </button>
-              </div>
-              <button type="button" id="articleSearchSubmitBtn" class="btn btn-search-action">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <span>Cari Artikel</span>
-              </button>
-            </div>
-            <button type="button" id="resetArticleBtn" class="btn btn-reset-action" title="Tampilkan semua artikel">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
-              <span>Reset</span>
-            </button>
-          </div>
-          <div class="catalog-status-bar" style="margin-top: 1rem;">
-            <div id="articleResultCount" class="catalog-result-count">
-              Menampilkan <strong>6 artikel</strong> panduan & teknologi CCTV pertambangan
-            </div>
-          </div>
-        </div>
-
-        <!-- 2-Column Layout: Main Articles + Recent Portfolio Posts Sidebar -->
+        <!-- 2-Column Layout: Main Articles + Sidebar (Pencarian & Postingan Terbaru) -->
         <div class="articles-layout-grid">
           <!-- Main Articles Column -->
           <div class="articles-main-col">
+            <div class="catalog-status-bar" style="margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; background: #FFFFFF; padding: 0.85rem 1.25rem; border-radius: 12px; border: 1.5px solid #E2E8F0; box-shadow: 0 2px 8px rgba(7, 26, 54, 0.04);">
+              <div id="articleResultCount" class="catalog-result-count" style="font-size: 0.92rem; color: #475569;">
+                Menampilkan <strong>6 artikel</strong> panduan & teknologi CCTV pertambangan
+              </div>
+            </div>
+
             <div class="article-grid" id="articleCardsGrid">
               <!-- Article 1 -->
               <article class="article-card">
@@ -267,14 +242,45 @@
                 <circle cx="11" cy="11" r="8"></circle>
                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
-              <h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: #071A36; margin-bottom: 0.5rem;">Artikel Tidak Ditemukan</h3>
+              <h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: #0B1320; margin-bottom: 0.5rem;">Artikel Tidak Ditemukan</h3>
               <p style="color: #64748B; font-size: 0.95rem; max-width: 440px; margin: 0 auto 1.5rem;">Tidak ada artikel yang cocok dengan kata kunci yang Anda masukkan. Coba gunakan kata kunci umum seperti <em>"solar"</em>, <em>"thermal"</em>, atau <em>"atex"</em>.</p>
               <button type="button" id="emptyResetBtn" class="btn btn-p" style="padding: 10px 22px;">Reset Pencarian</button>
             </div>
           </div>
 
-          <!-- Sidebar: Postingan Artikel Terbaru & Hubungi Kami -->
+          <!-- Sidebar: Tempat Pencarian, Postingan Artikel Terbaru & Hubungi Kami -->
           <aside class="articles-sidebar">
+            <!-- Tempat Pencarian Artikel di atas Postingan Terbaru -->
+            <div class="sidebar-search-card">
+              <div class="sidebar-search-head">
+                <h3 class="sidebar-widget-title">Cari Artikel</h3>
+                <p class="sidebar-widget-desc">Temukan panduan teknis & solusi CCTV tambang.</p>
+              </div>
+              <div class="sidebar-search-body">
+                <div class="sidebar-search-input-wrap">
+                  <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0052CC" stroke-width="2.2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                  <input type="text" id="articleSearchInput" placeholder="Ketik kata kunci artikel..." autocomplete="off">
+                  <button type="button" id="clearArticleSearchBtn" class="clear-search-btn" title="Hapus teks pencarian" style="display: none;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="18" x2="18" y2="18"></line></svg>
+                  </button>
+                </div>
+                <div class="sidebar-search-btn-group">
+                  <button type="button" id="articleSearchSubmitBtn" class="btn btn-orange btn-search-action">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <span>Cari</span>
+                  </button>
+                  <button type="button" id="resetArticleBtn" class="btn btn-reset-action" title="Tampilkan semua artikel">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+                    <span>Reset</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Postingan Artikel Terbaru -->
             <div class="sidebar-articles-card">
               <div class="sidebar-articles-head">
                 <h3 class="sidebar-widget-title">Postingan Artikel Terbaru</h3>

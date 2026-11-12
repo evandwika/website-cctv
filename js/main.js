@@ -229,11 +229,31 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    // Use event delegation so original and cloned cards both work seamlessly
+    // Portfolio Card Click & Tap interaction: toggle active slide-up description
     document.addEventListener('click', (e) => {
+      // If user clicked inside an action link or button, allow normal link navigation
+      if (e.target.closest('a, button')) return;
+
       const card = e.target.closest('.port-card');
-      if (!card) return;
-      openModal(card);
+      const allCards = document.querySelectorAll('.port-card');
+
+      if (card) {
+        const isAlreadyActive = card.classList.contains('is-active');
+        allCards.forEach((c) => {
+          c.classList.remove('is-active');
+          c.setAttribute('aria-expanded', 'false');
+        });
+        if (!isAlreadyActive) {
+          card.classList.add('is-active');
+          card.setAttribute('aria-expanded', 'true');
+        }
+      } else {
+        // Clicked outside any portfolio card -> close active overlays
+        allCards.forEach((c) => {
+          c.classList.remove('is-active');
+          c.setAttribute('aria-expanded', 'false');
+        });
+      }
     });
 
     document.addEventListener('keydown', (e) => {
@@ -241,8 +261,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = e.target.closest('.port-card');
         if (card && document.activeElement === card) {
           e.preventDefault();
-          openModal(card);
+          const isAlreadyActive = card.classList.contains('is-active');
+          document.querySelectorAll('.port-card').forEach((c) => {
+            c.classList.remove('is-active');
+            c.setAttribute('aria-expanded', 'false');
+          });
+          if (!isAlreadyActive) {
+            card.classList.add('is-active');
+            card.setAttribute('aria-expanded', 'true');
+          }
         }
+      } else if (e.key === 'Escape') {
+        document.querySelectorAll('.port-card.is-active').forEach((c) => {
+          c.classList.remove('is-active');
+          c.setAttribute('aria-expanded', 'false');
+        });
       }
     });
 
@@ -492,6 +525,17 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   initPortfolioSlider();
+
+  // Bersihkan widget floating dari ekstensi browser pihak ketiga (seperti Adobe Acrobat)
+  const removeAdobeWidgets = () => {
+    document.querySelectorAll('[id*="adobe"], [class*="adobe"], [id*="acrobat"], [class*="acrobat"], adobe-dc-view').forEach(el => {
+      el.remove();
+    });
+  };
+  removeAdobeWidgets();
+  window.addEventListener('load', removeAdobeWidgets);
+  setTimeout(removeAdobeWidgets, 600);
+  setTimeout(removeAdobeWidgets, 1500);
 });
 
 // Toast Notification
@@ -504,7 +548,7 @@ function showToast(message, duration = 3500) {
   }
 
   toast.innerHTML = `
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.2">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.2">
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
     </svg>
     <span>${message}</span>

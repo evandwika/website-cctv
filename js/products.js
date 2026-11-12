@@ -1,4 +1,4 @@
-﻿/**
+/**
  * CAHAYA MUSTIKA INTERNESIA - Katalog CCTV Tambang & Industrial
  * Partner Resmi Solusi Surveilans & Kamera CCTV Hikvision Industrial
  * Spesifikasi Teknis Resmi Sesuai Datasheet & Katalog Hikvision Indonesia (hikvision.com/id)
@@ -1149,7 +1149,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
-          <h3 style="font-family: var(--font-heading); margin-bottom: 0.5rem; color: #071A36;">Tidak Ada Perangkat yang Sesuai</h3>
+          <h3 style="font-family: var(--font-heading); margin-bottom: 0.5rem; color: #0B1320;">Tidak Ada Perangkat yang Sesuai</h3>
           <p style="color: #64748B; margin-bottom: 1.5rem;">Coba ubah pilihan kategori atau kata kunci pencarian perangkat tambang Anda.</p>
           <button type="button" class="btn btn-navy btn-sm" onclick="document.getElementById('resetFilterBtn') && document.getElementById('resetFilterBtn').click()">
             Tampilkan Semua Perangkat
