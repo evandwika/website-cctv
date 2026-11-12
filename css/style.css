@@ -2718,11 +2718,120 @@ button, input, select, textarea {
 }
 
 .articles-main-col .article-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   margin-top: 0;
+}
+
+/* Susunan Menyamping (Horizontal Card) untuk Halaman Artikel */
+.articles-main-col .article-card {
+  display: flex;
+  flex-direction: row;
   align-items: stretch;
+  background: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(11, 19, 32, 0.06);
+  min-height: 210px;
+  height: auto;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.articles-main-col .article-card:hover {
+  transform: translateY(-4px);
+  border-color: #0052CC;
+  box-shadow: 0 14px 32px rgba(11, 19, 32, 0.12);
+}
+
+.articles-main-col .article-thumb {
+  flex: 0 0 270px;
+  width: 270px;
+  height: auto;
+  min-height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #0B1320;
+  border-bottom: none;
+  border-right: 1.5px solid #E2E8F0;
+}
+
+.articles-main-col .article-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.articles-main-col .article-card:hover .article-thumb img {
+  transform: scale(1.05);
+}
+
+.articles-main-col .article-body {
+  flex: 1;
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.articles-main-col .article-date {
+  font-size: 0.82rem;
+  color: #64748B;
+  margin-bottom: 0.45rem;
+  display: block;
+}
+
+.articles-main-col .article-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0B1320;
+  line-height: 1.35;
+  margin-bottom: 0.65rem;
+}
+
+.articles-main-col .article-title a {
+  color: #0B1320;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.articles-main-col .article-title a:hover {
+  color: #0052CC;
+}
+
+.articles-main-col .article-snippet {
+  font-size: 0.92rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 1.1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.articles-main-col .article-readmore {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0052CC;
+  text-decoration: none;
+  margin-top: auto;
+  align-self: flex-start;
+  transition: gap 0.2s, color 0.2s;
+}
+
+.articles-main-col .article-readmore:hover {
+  color: #0747A6;
+  gap: 10px;
 }
 
 .article-grid {
@@ -3020,10 +3129,19 @@ button, input, select, textarea {
   }
 }
 
-@media (max-width: 640px) {
-  .articles-main-col .article-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
+@media (max-width: 768px) {
+  .articles-main-col .article-card {
+    flex-direction: column;
+  }
+  .articles-main-col .article-thumb {
+    width: 100%;
+    flex: 0 0 210px;
+    height: 210px;
+    border-right: none;
+    border-bottom: 1.5px solid #E2E8F0;
+  }
+  .articles-main-col .article-body {
+    padding: 1.35rem 1.25rem;
   }
 }
 
